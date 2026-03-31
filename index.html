@@ -1,0 +1,2020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java Backend Developer – Complete Interview Prep Kit v2</title>
+<style>
+:root{--primary:#1a1a2e;--accent:#e94560;--gold:#f5a623;--green:#27ae60;--teal:#1abc9c;--blue:#2980b9;--purple:#8e44ad;--orange:#e67e22;--text:#1a1a2e;--muted:#556;--bg:#f8f9fc;--card:#fff;--border:#e0e4ef;--codebg:#1e2030;--codefg:#c9d1d9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+.hero{background:linear-gradient(135deg,#0f3460,#16213e,#1a1a2e);color:#fff;padding:2.5rem 2rem 2rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50px;right:-50px;width:350px;height:350px;background:radial-gradient(circle,rgba(233,69,96,.15),transparent 70%);border-radius:50%}
+.hero-badge{display:inline-block;background:rgba(233,69,96,.2);border:1px solid rgba(233,69,96,.4);color:#ff8fa3;border-radius:20px;padding:4px 14px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:.75rem}
+.hero h1{font-size:2rem;font-weight:800;line-height:1.2;margin-bottom:.4rem}.hero h1 span{color:#e94560}
+.hero-sub{color:rgba(255,255,255,.6);font-size:.9rem;margin-bottom:1.25rem}
+.tech-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tech-tag{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.85);padding:3px 11px;border-radius:20px;font-size:11px;font-weight:500}
+.sticky-nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);z-index:100;padding:0 1rem;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.sticky-nav::-webkit-scrollbar{display:none}
+.nav-btn{background:none;border:none;padding:11px 14px;font-size:12.5px;font-weight:500;color:var(--muted);cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s}
+.nav-btn.active,.nav-btn:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.container{max-width:1020px;margin:0 auto;padding:2rem 1.5rem}
+.section{display:none}.section.active{display:block}
+.sec-title{font-size:1.45rem;font-weight:800;margin-bottom:.2rem}
+.sec-sub{color:var(--muted);font-size:.88rem;margin-bottom:1.5rem}
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem}
+.card h3{font-size:.95rem;font-weight:700;margin-bottom:.75rem}
+/* Q&A */
+.qa-list{list-style:none}
+.qa-item{border:1px solid var(--border);border-radius:10px;margin-bottom:9px;overflow:hidden}
+.qa-q{padding:11px 15px;background:#fafbff;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.855rem;font-weight:600;user-select:none;gap:10px}
+.qa-q:hover{background:#f0f2ff}
+.qa-label{flex:1}
+.qa-badges{display:flex;gap:5px;flex-shrink:0;align-items:center}
+.qa-arrow{font-size:11px;color:var(--accent);transition:transform .2s;flex-shrink:0}
+.qa-a{display:none;padding:13px 15px;font-size:.83rem;color:#444;border-top:1px solid var(--border);line-height:1.75}
+.qa-item.open .qa-a{display:block}
+.qa-item.open .qa-arrow{transform:rotate(180deg)}
+/* CODE */
+pre{background:var(--codebg);color:var(--codefg);border-radius:8px;padding:.9rem 1rem;font-size:11.5px;overflow-x:auto;margin:.65rem 0;font-family:'Cascadia Code','Fira Code','Consolas',monospace;line-height:1.6}
+code{background:#eef2ff;color:#3730a3;padding:2px 5px;border-radius:4px;font-size:11.5px;font-family:monospace}
+/* TIMELINE */
+.timeline{position:relative;margin:1.25rem 0}
+.timeline::before{content:'';position:absolute;left:27px;top:0;bottom:0;width:2px;background:var(--border)}
+.tl-item{display:flex;gap:1.25rem;margin-bottom:1.25rem}
+.tl-dot{width:54px;height:54px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;z-index:1}
+.tl-body{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.4rem;flex:1}
+.tl-body h3{font-size:.92rem;font-weight:700;margin-bottom:3px}
+.tl-body p{font-size:.82rem;color:var(--muted)}
+.tl-label{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:3px}
+/* DIFFICULTY */
+.d-e{background:#d1fae5;color:#065f46;font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px}
+.d-m{background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px}
+.d-h{background:#fee2e2;color:#991b1b;font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px}
+/* GRID */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:680px){.g2,.g3{grid-template-columns:1fr}}
+/* ANN */
+.ann-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-top:.75rem}
+.ann{background:var(--card);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:.9rem 1rem}
+.ann h4{font-size:.835rem;font-weight:700;margin-bottom:3px}
+.ann p{font-size:.79rem;color:var(--muted);line-height:1.6}
+/* INFO BOXES */
+.info{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:.9rem 1.1rem;margin-bottom:1rem;font-size:.84rem}
+.info.warn{background:#fffbeb;border-color:#fde68a}
+.info.ok{background:#f0fdf4;border-color:#bbf7d0}
+.info.tip{background:#fdf4ff;border-color:#e9d5ff}
+.info strong{color:var(--text)}
+/* RESOURCE */
+.res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:10px;margin-top:.75rem}
+.res-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.9rem 1.1rem}
+.res-card h4{font-size:.84rem;font-weight:700;margin-bottom:3px}
+.res-card p{font-size:.78rem;color:var(--muted);margin-bottom:6px}
+.res-link{font-size:11.5px;color:var(--blue);text-decoration:none;font-weight:600}
+.res-link:hover{text-decoration:underline}
+.rt{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.4px;padding:2px 7px;border-radius:8px;text-transform:uppercase;margin-bottom:5px}
+.rt-yt{background:#fff0f0;color:#c0392b}
+.rt-doc{background:#f0f8ff;color:#1a6fa8}
+.rt-prac{background:#f0fff4;color:#1a8a4a}
+/* PLAIN LIST */
+ul.plain{list-style:none;font-size:.83rem;color:var(--muted);padding-left:0}
+ul.plain li{margin-bottom:4px;padding-left:14px;position:relative}
+ul.plain li::before{content:'→';color:var(--accent);font-weight:700;position:absolute;left:0}
+/* STEPS */
+.steps{list-style:none;counter-reset:sc;padding:0}
+.steps li{counter-increment:sc;display:flex;gap:10px;margin-bottom:8px;font-size:.84rem;color:#444;align-items:flex-start}
+.steps li::before{content:counter(sc);background:var(--accent);color:#fff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px}
+/* DSA */
+.dsa-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:.75rem}
+.dsa-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.9rem}
+.dsa-card h4{font-size:.835rem;font-weight:700;margin-bottom:.4rem}
+.dsa-card ul{font-size:.79rem;color:var(--muted);padding-left:14px}
+.dsa-card li{margin-bottom:3px}
+/* SD */
+.sd-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.3rem 1.5rem;margin-bottom:1rem}
+.sd-card h3{font-size:.92rem;font-weight:700;margin-bottom:.65rem}
+/* CHECKLIST */
+.checklist{list-style:none}
+.checklist li{display:flex;gap:9px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--border);font-size:.84rem}
+.checklist input[type=checkbox]{margin-top:2px;accent-color:var(--accent);flex-shrink:0;width:15px;height:15px;cursor:pointer}
+.prog-bar{height:8px;background:var(--border);border-radius:4px;overflow:hidden;margin:.4rem 0 .9rem}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));border-radius:4px;transition:width .3s}
+/* CROSS-LINK BADGE */
+.xlink{display:inline-block;background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe;padding:1px 8px;border-radius:10px;font-size:10.5px;font-weight:600;cursor:pointer;margin-left:4px;vertical-align:middle}
+.xlink:hover{background:#c7d2fe}
+/* TOPIC DIVIDER */
+.tdiv{display:flex;align-items:center;gap:10px;margin:1.75rem 0 1rem}
+.tdiv-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.tdiv-title{font-size:1rem;font-weight:700}
+.tdiv-line{flex:1;height:1px;background:var(--border)}
+/* COMPARE TABLE */
+.ctable{width:100%;border-collapse:collapse;font-size:.81rem;margin:.65rem 0}
+.ctable th{background:#f1f5ff;padding:8px 10px;text-align:left;font-weight:700;border:1px solid var(--border);font-size:.78rem}
+.ctable td{padding:7px 10px;border:1px solid var(--border);vertical-align:top;color:#444}
+.ctable tr:nth-child(even) td{background:#fafbff}
+/* SECTION LABEL */
+.sec-lbl{font-size:.75rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin:1.5rem 0 .5rem}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">v2 · Expanded Edition · 72-Hour Prep</div>
+  <h1>Java Backend Developer<br><span>Complete Interview Mastery Kit</span></h1>
+  <p class="hero-sub">Deep theory · Exhaustive Q&amp;A · Code snippets · Cross-topic links · DSA + System Design YouTube resources</p>
+  <div class="tech-tags">
+    <span class="tech-tag">☕ Java Core</span><span class="tech-tag">🌱 Spring Boot</span><span class="tech-tag">🍃 MongoDB</span>
+    <span class="tech-tag">🏗️ Microservices</span><span class="tech-tag">🧪 JUnit</span><span class="tech-tag">🗄️ Oracle SQL</span>
+    <span class="tech-tag">🌐 REST APIs</span><span class="tech-tag">📐 System Design</span><span class="tech-tag">🧩 DSA</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="sticky-nav">
+  <button class="nav-btn active" onclick="show('roadmap',this)">🗺 Roadmap</button>
+  <button class="nav-btn" onclick="show('java',this)">☕ Java</button>
+  <button class="nav-btn" onclick="show('springboot',this)">🌱 Spring Boot</button>
+  <button class="nav-btn" onclick="show('microservices',this)">🏗️ Microservices</button>
+  <button class="nav-btn" onclick="show('mongodb',this)">🍃 MongoDB</button>
+  <button class="nav-btn" onclick="show('oracle',this)">🗄️ Oracle/SQL</button>
+  <button class="nav-btn" onclick="show('junit',this)">🧪 JUnit</button>
+  <button class="nav-btn" onclick="show('rest',this)">🌐 REST APIs</button>
+  <button class="nav-btn" onclick="show('systemdesign',this)">📐 System Design</button>
+  <button class="nav-btn" onclick="show('dsa',this)">🧩 DSA</button>
+  <button class="nav-btn" onclick="show('resources',this)">📚 Resources</button>
+  <button class="nav-btn" onclick="show('tracker',this)">✅ Tracker</button>
+</nav>
+
+<!-- ════════════════════════════════════════════════ ROADMAP ════ -->
+<div id="roadmap" class="section active"><div class="container">
+<div class="sec-title">🗺 72-Hour Battle Plan</div>
+<p class="sec-sub">Structured sprint — follow this timeline. Don't skip "Proof of Work" code steps; live coding separates candidates.</p>
+<div class="info ok"><strong>Golden Rule:</strong> For every topic — understand the WHY, write the code, explain it out loud. Interviewers follow threads: one answer leads to 3 more questions. Be ready for depth on anything.</div>
+<div class="timeline">
+  <div class="tl-item"><div class="tl-dot" style="background:#e94560;color:#fff">1</div><div class="tl-body"><div class="tl-label" style="color:#e94560">HRS 0–8 · Day 1 Morning</div><h3>Java Core + Spring Boot Foundations</h3><p>OOP (all 4 pillars with real examples), Collections internals (HashMap bucket/tree), Java 8 (Streams, Optional, Lambdas, Functional Interfaces), Exception hierarchy, Multithreading (Thread, Runnable, ExecutorService, volatile, synchronized). Spring Boot: DI/IoC, all annotations, Auto-config, Bean lifecycle, REST controller, Profiles, Actuator. Write 2 REST APIs from scratch.</p></div></div>
+  <div class="tl-item"><div class="tl-dot" style="background:#f5a623;color:#fff">2</div><div class="tl-body"><div class="tl-label" style="color:#f5a623">HRS 8–16 · Day 1 Afternoon</div><h3>Microservices + REST API Design</h3><p>Service decomposition, Service discovery (Eureka), API Gateway patterns, Circuit Breaker (Resilience4j), JWT auth end-to-end, Feign vs RestTemplate, Kafka async communication, Saga pattern (choreography + orchestration), Distributed tracing (Sleuth+Zipkin). REST: all HTTP methods, status codes, versioning, pagination, HATEOAS, SOAP vs REST. Design a 3-service system on paper.</p></div></div>
+  <div class="tl-item"><div class="tl-dot" style="background:#1abc9c;color:#fff">3</div><div class="tl-body"><div class="tl-label" style="color:#1abc9c">HRS 16–24 · Day 1 Night</div><h3>MongoDB Deep Dive + Sleep</h3><p>Document model, BSON types, CRUD, Aggregation pipeline (5+ stages), Indexes (all types), Sharding vs Replication, Multi-doc transactions, $lookup/$unwind/$group, Spring Data MongoDB. Write 5 aggregation queries. Compare patterns with Oracle. Then SLEEP — critical for consolidation.</p></div></div>
+  <div class="tl-item"><div class="tl-dot" style="background:#8e44ad;color:#fff">4</div><div class="tl-body"><div class="tl-label" style="color:#8e44ad">HRS 24–36 · Day 2 Morning</div><h3>Oracle SQL + JUnit + Testing</h3><p>Oracle: PL/SQL (procedures, functions, cursors), Window functions (RANK, ROW_NUMBER, LAG, LEAD), Query optimization (EXPLAIN PLAN, indexes, bind variables), Sequences, Materialized Views, Transactions/ACID/isolation. JUnit 5: all annotations, Mockito (@Mock, @Spy, @InjectMocks), @WebMvcTest, @DataMongoTest, TDD cycle. Write complete unit + integration tests.</p></div></div>
+  <div class="tl-item"><div class="tl-dot" style="background:#2980b9;color:#fff">5</div><div class="tl-body"><div class="tl-label" style="color:#2980b9">HRS 36–52 · Day 2 Afternoon/Evening</div><h3>System Design + DSA Practice</h3><p>System Design: 6-step framework, CAP theorem, caching strategies, DB sharding, design E-Commerce + URL Shortener + Notification Service. DSA: HashMap internals, BFS/DFS templates, Binary Search, Sliding Window, Two Pointers, LRU Cache. Solve 12 LeetCode mediums in Java. Watch 2 system design YouTube videos. Sleep.</p></div></div>
+  <div class="tl-item"><div class="tl-dot" style="background:#e67e22;color:#fff">6</div><div class="tl-body"><div class="tl-label" style="color:#e67e22">HRS 52–64 · Day 3 Morning</div><h3>Mock Interview + Weak Area Drill</h3><p>Full self-mock: pick random Q from each tab, answer in 90 seconds. Find 3 weakest areas → drill hard. Practice cross-topic linking: "If Spring Boot uses MongoDB with transactions — explain the config." Review all annotation cheat sheets. Practice STAR behavioral answers.</p></div></div>
+  <div class="tl-item"><div class="tl-dot" style="background:#27ae60;color:#fff">7</div><div class="tl-body"><div class="tl-label" style="color:#27ae60">HRS 64–72 · Day 3 Rest</div><h3>Final Review + Rest</h3><p>Skim all Q&amp;A once. Review your 8 code snippets mentally. Prepare 3 questions to ask the interviewer. Light walk, good meal, 8 hrs sleep. Trust the preparation — cramming now hurts more than helps.</p></div></div>
+</div>
+<div class="card"><h3>⚡ 8 Proof-of-Work Code Pieces to Have Mentally Ready</h3>
+<div class="g2">
+<ul class="plain"><li>Spring Boot REST API — full CRUD with validation</li><li>JWT Security filter chain setup</li><li>MongoDB aggregation pipeline (5+ stages)</li><li>Resilience4j Circuit Breaker with fallback</li></ul>
+<ul class="plain"><li>JUnit + Mockito complete service test</li><li>Oracle window function query (LAG/RANK)</li><li>Feign client + Kafka producer/consumer</li><li>LRU Cache + BFS/DFS in Java</li></ul>
+</div></div>
+</div></div>
+
+<!-- ════════════════════════════════════════════════ JAVA ════ -->
+<div id="java" class="section"><div class="container">
+<div class="sec-title">☕ Core Java</div>
+<p class="sec-sub">OOP · Collections · Java 8+ · Concurrency · JVM — most heavily cross-linked topic in interviews</p>
+<div class="info tip"><strong>Cross-topic alert:</strong> Java knowledge flows into every other topic. Spring uses Java generics, Streams, Lambdas everywhere. MongoDB uses Java collections. JUnit relies on Java reflection. Expect interviewers to bridge from any topic back to Java fundamentals.</div>
+
+<div class="tdiv"><div class="tdiv-icon" style="background:#fff3e0">🏛️</div><div class="tdiv-title">OOP — Object Oriented Programming</div><div class="tdiv-line"></div></div>
+<ul class="qa-list">
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">What are the 4 pillars of OOP? Give real project examples for each.</span><div class="qa-badges"><span class="d-e">Easy</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<strong>1. Encapsulation</strong> — hiding internal state; expose only via controlled API.<br>
+Example: <code>BankAccount</code> has private <code>balance</code>; only <code>deposit()</code> and <code>withdraw()</code> modify it, with validation logic inside.<br><br>
+<strong>2. Inheritance</strong> — IS-A relationship. Reuse and extend behaviour via <code>extends</code>.<br>
+Example: <code>ElectricVehicle extends Vehicle</code> — inherits <code>startEngine()</code> but overrides with <code>startMotor()</code>.<br><br>
+<strong>3. Polymorphism</strong> — same interface, different behaviour.<br>
+Compile-time: method overloading (same name, different params).<br>
+Runtime: method overriding via @Override — <code>Shape[] shapes; shapes[0].area()</code> calls Circle.area() or Square.area() based on actual type.<br><br>
+<strong>4. Abstraction</strong> — expose WHAT, hide HOW. Via abstract classes and interfaces.<br>
+Example: <code>PaymentGateway</code> interface with <code>processPayment()</code>; <code>StripeGateway</code> and <code>PaypalGateway</code> implement it differently.
+<pre>// Polymorphism + Abstraction together
+public interface PaymentGateway {
+    PaymentResult processPayment(PaymentRequest req);
+    boolean refund(String transactionId);
+}
+
+@Service("stripe")
+public class StripeGateway implements PaymentGateway {
+    @Override
+    public PaymentResult processPayment(PaymentRequest req) { /* Stripe API */ }
+    @Override
+    public boolean refund(String txId) { /* Stripe refund */ }
+}</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Abstract class vs Interface — when to use which?</span><div class="qa-badges"><span class="d-m">Medium</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<table class="ctable"><tr><th>Aspect</th><th>Abstract Class</th><th>Interface</th></tr>
+<tr><td>Extends/Implements</td><td>Single inheritance</td><td>Multiple implementation</td></tr>
+<tr><td>Constructor</td><td>Yes (can have)</td><td>No</td></tr>
+<tr><td>State (fields)</td><td>Yes, any access modifier</td><td>Only public static final</td></tr>
+<tr><td>Default methods</td><td>Any concrete method</td><td>Since Java 8 (default keyword)</td></tr>
+<tr><td>When to use</td><td>Shared code + partial implementation (Template pattern)</td><td>Define a contract (capability) across unrelated classes</td></tr></table>
+<strong>Rule of thumb:</strong> If classes SHARE code → abstract class. If classes SHARE capability but unrelated → interface.<br>
+Example: <code>AbstractOrderProcessor</code> (shared steps, validation) vs <code>Serializable</code>, <code>Runnable</code>, <code>Comparable</code> (capabilities).
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">What is method overloading vs overriding? Explain with covariant return types.</span><div class="qa-badges"><span class="d-m">Medium</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<strong>Overloading</strong> (Compile-time polymorphism): same method name, different parameter list in the same class. Return type alone cannot distinguish.<br>
+<strong>Overriding</strong> (Runtime polymorphism): subclass re-implements parent method with same signature. Annotate with @Override. Covariant return: subclass can return a more specific type.
+<pre>// Overloading
+class Printer {
+    void print(String s) { }
+    void print(int n) { }
+    void print(String s, int copies) { }
+}
+
+// Overriding with covariant return
+class Animal { Animal create() { return new Animal(); } }
+class Dog extends Animal {
+    @Override
+    Dog create() { return new Dog(); } // covariant — Dog is subtype of Animal
+}
+
+// Dynamic dispatch — resolved at runtime
+Animal a = new Dog();
+a.sound(); // calls Dog.sound(), not Animal.sound()</pre>
+</div></li>
+</ul>
+
+<div class="tdiv"><div class="tdiv-icon" style="background:#e8f5e9">📦</div><div class="tdiv-title">Collections Framework</div><div class="tdiv-line"></div></div>
+<ul class="qa-list">
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Explain HashMap internal working — hashing, collision, treeification</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+HashMap internally uses an array of <code>Node&lt;K,V&gt;[]</code> called <code>table</code>. Default capacity = 16, load factor = 0.75.<br><br>
+<strong>put(key, value) flow:</strong><br>
+1. <code>hashCode()</code> called on key → hash spread with XOR shift: <code>hash = (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16)</code><br>
+2. Index = <code>hash &amp; (n-1)</code> where n = table length (always power of 2 → fast modulo)<br>
+3. If slot empty → insert Node. If occupied (collision) → traverse linked list, compare keys with <code>equals()</code><br>
+4. If chain length &gt; 8 AND table size ≥ 64 → convert to Red-Black Tree (O(log n) vs O(n))<br>
+5. If size &gt; capacity × 0.75 → <strong>resize</strong>: double capacity, rehash all entries<br><br>
+<strong>Why equals() AND hashCode() contract matters:</strong> Two equal objects must have same hashCode. If you override equals() without hashCode(), equal objects go to different buckets → broken Map behavior.<br>
+<pre>// Correct custom key
+public class OrderKey {
+    private String orderId;
+    private String userId;
+    
+    @Override
+    public int hashCode() {
+        return Objects.hash(orderId, userId);
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof OrderKey ok)) return false;
+        return orderId.equals(ok.orderId) && userId.equals(ok.userId);
+    }
+}</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">ArrayList vs LinkedList — when to use which? What about Vector?</span><div class="qa-badges"><span class="d-e">Easy</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<table class="ctable"><tr><th>Operation</th><th>ArrayList</th><th>LinkedList</th></tr>
+<tr><td>get(i) / set(i)</td><td>O(1) — backed by array</td><td>O(n) — must traverse</td></tr>
+<tr><td>add at end</td><td>O(1) amortized</td><td>O(1)</td></tr>
+<tr><td>add/remove at middle</td><td>O(n) — shift elements</td><td>O(1) once node found</td></tr>
+<tr><td>Memory</td><td>Compact (just data)</td><td>Extra prev/next pointers</td></tr>
+<tr><td>Cache performance</td><td>Better (contiguous memory)</td><td>Worse (scattered nodes)</td></tr></table>
+<strong>Choose ArrayList</strong> for most cases (better cache, random access).<br>
+<strong>Choose LinkedList</strong> only when frequent insert/delete at head/middle AND no random access needed (e.g., as Queue/Deque).<br>
+<strong>Vector</strong> — legacy, synchronized ArrayList. Use <code>Collections.synchronizedList()</code> or <code>CopyOnWriteArrayList</code> instead.
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Difference: HashSet, LinkedHashSet, TreeSet. How is HashSet backed internally?</span><div class="qa-badges"><span class="d-m">Medium</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<strong>HashSet</strong> — backed by a HashMap (values are a dummy PRESENT object). No ordering. O(1) add/remove/contains.<br>
+<strong>LinkedHashSet</strong> — backed by LinkedHashMap. Preserves insertion order. Slightly slower.<br>
+<strong>TreeSet</strong> — backed by TreeMap (Red-Black Tree). Sorted order. O(log n). Implements NavigableSet — headSet(), tailSet(), floor(), ceiling().<br><br>
+Since HashSet uses HashMap internally, the same hashCode()+equals() contract applies. All elements must correctly implement these for Set to work.
+<pre>TreeSet&lt;Integer&gt; ts = new TreeSet&lt;&gt;();
+ts.addAll(List.of(5,3,8,1,9));
+System.out.println(ts.headSet(6)); // [1, 3, 5]
+System.out.println(ts.floor(4));   // 3 (greatest ≤ 4)
+System.out.println(ts.ceiling(4)); // 5 (smallest ≥ 4)</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">ConcurrentHashMap internals — how thread safety works in Java 8</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+Java 7: ConcurrentHashMap used Segment[] locking (16 segments). Each segment was a mini HashMap with a lock.<br>
+Java 8: Replaced with CAS (Compare-And-Swap) + synchronized on bucket head only. Much finer-grained.<br><br>
+<strong>Java 8 Internals:</strong><br>
+• Reads: Completely lock-free (volatile Node array)<br>
+• Empty bucket insert: CAS operation — atomic, no lock<br>
+• Collision (non-empty bucket): synchronized on the head Node — only locks that one bucket<br>
+• No null keys or values allowed (unlike HashMap)<br>
+• <code>computeIfAbsent()</code>, <code>merge()</code>, <code>compute()</code> are atomic operations<br>
+<pre>ConcurrentHashMap&lt;String, Integer&gt; map = new ConcurrentHashMap&lt;&gt;();
+
+// Atomic increment — use compute, not get+put
+map.compute("count", (k, v) -> v == null ? 1 : v + 1);
+
+// Or merge
+map.merge("count", 1, Integer::sum);
+
+// NOT thread-safe even with CHM:
+int v = map.get("x"); map.put("x", v + 1); // race condition!</pre>
+</div></li>
+</ul>
+
+<div class="tdiv"><div class="tdiv-icon" style="background:#e3f2fd">🔷</div><div class="tdiv-title">Java 8+ Features</div><div class="tdiv-line"></div></div>
+<ul class="qa-list">
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Streams — explain lazy evaluation, short-circuit, and parallel streams</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<strong>Lazy evaluation:</strong> Intermediate operations (filter, map, sorted) create a pipeline but do NOT execute until a terminal operation is called. This means zero work if there's no terminal op.
+<pre>Stream&lt;String&gt; s = names.stream()
+    .filter(n -> { System.out.println("filter: "+n); return n.length() > 3; })
+    .map(String::toUpperCase);
+// Nothing prints yet — no terminal op
+s.findFirst(); // NOW it executes, and stops after first match (short-circuit)</pre>
+<strong>Short-circuit operations:</strong> findFirst(), findAny(), anyMatch(), allMatch(), noneMatch(), limit() — stop processing once result is determined.<br><br>
+<strong>Parallel Streams:</strong> <code>stream().parallel()</code> or <code>parallelStream()</code> splits source using ForkJoinPool.commonPool(). Good for CPU-bound, independent operations on large datasets (&gt;10K elements). Bad for: small datasets (overhead), IO-bound tasks, stateful operations, non-thread-safe collectors.
+<pre>// Good use case
+long count = largeList.parallelStream()
+    .filter(item -> expensiveCheck(item))
+    .count();
+
+// Danger: shared mutable state with parallel
+List&lt;String&gt; result = new ArrayList&lt;&gt;(); // NOT thread-safe!
+names.parallelStream().forEach(result::add); // race condition!
+// FIX: .collect(Collectors.toList()) instead</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Optional — correct usage patterns and common anti-patterns</span><div class="qa-badges"><span class="d-m">Medium</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>// ✅ GOOD patterns
+Optional&lt;User&gt; user = userRepo.findById(id);
+
+// Chain without null check
+String city = user.map(User::getAddress)
+                  .map(Address::getCity)
+                  .orElse("Unknown");
+
+// orElseGet — lazy (only called if empty)
+User u = user.orElseGet(() -> createGuestUser());
+
+// orElseThrow — throw specific exception
+User u2 = user.orElseThrow(() -> new UserNotFoundException(id));
+
+// ifPresent — perform action if present
+user.ifPresent(u -> sendWelcomeEmail(u.getEmail()));
+
+// filter
+Optional&lt;User&gt; active = user.filter(u -> u.isActive());
+
+// ❌ BAD patterns
+if (user.isPresent()) { return user.get(); } // defeats the purpose
+Optional&lt;String&gt; name = Optional.of(null); // throws NPE! use ofNullable
+void method(Optional&lt;String&gt; param) { } // NEVER use Optional as param
+List&lt;Optional&lt;User&gt;&gt; list = ...; // NEVER use in collections</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Method references — 4 types with examples</span><div class="qa-badges"><span class="d-e">Easy</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>// 1. Static method reference: Class::staticMethod
+Function&lt;String, Integer&gt; parse = Integer::parseInt;
+List&lt;Integer&gt; nums = List.of("1","2","3").stream()
+    .map(Integer::parseInt).collect(toList());
+
+// 2. Instance method of particular object: instance::method
+String prefix = "Hello";
+Predicate&lt;String&gt; startsWith = prefix::equals;
+
+// 3. Instance method of arbitrary object: Class::instanceMethod
+Function&lt;String, String&gt; upper = String::toUpperCase;
+// equivalent to: s -> s.toUpperCase()
+
+// 4. Constructor reference: Class::new
+Supplier&lt;List&lt;String&gt;&gt; listFactory = ArrayList::new;
+Function&lt;String, User&gt; userFactory = User::new;
+// equivalent to: name -> new User(name)</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">CompletableFuture — async programming in Java</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+CompletableFuture is Java 8's async/non-blocking API. Backed by ForkJoinPool by default; pass custom Executor for production.
+<pre>// Run async, no result
+CompletableFuture.runAsync(() -> sendEmail(userId));
+
+// Supply async result
+CompletableFuture&lt;User&gt; userFuture = 
+    CompletableFuture.supplyAsync(() -> userService.findById(id));
+
+// Chain: thenApply (transform), thenAccept (consume), thenRun (action)
+CompletableFuture&lt;String&gt; namesFuture = userFuture
+    .thenApply(User::getName)
+    .thenApply(String::toUpperCase);
+
+// Combine two futures
+CompletableFuture&lt;User&gt; uf = ...;
+CompletableFuture&lt;Order&gt; of = ...;
+CompletableFuture&lt;OrderSummary&gt; combined = 
+    uf.thenCombine(of, (u, o) -> new OrderSummary(u, o));
+
+// Wait for all
+CompletableFuture.allOf(f1, f2, f3).join();
+
+// Exception handling
+userFuture.exceptionally(ex -> {
+    log.error("Failed", ex);
+    return User.anonymous();
+});</pre>
+</div></li>
+</ul>
+
+<div class="tdiv"><div class="tdiv-icon" style="background:#fce4ec">⚡</div><div class="tdiv-title">Concurrency &amp; JVM</div><div class="tdiv-line"></div></div>
+<ul class="qa-list">
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Thread lifecycle, ExecutorService, and thread pool sizing</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<strong>Thread states:</strong> NEW → RUNNABLE → BLOCKED/WAITING/TIMED_WAITING → TERMINATED<br><br>
+<strong>ExecutorService is preferred over raw Thread</strong> — manages pool, reuse, lifecycle.
+<pre>// Fixed pool — good for CPU-bound tasks
+ExecutorService pool = Executors.newFixedThreadPool(
+    Runtime.getRuntime().availableProcessors()
+);
+
+// Cached pool — good for short-lived IO tasks (creates threads on demand)
+ExecutorService io = Executors.newCachedThreadPool();
+
+// Scheduled
+ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(2);
+scheduler.scheduleAtFixedRate(() -> cleanup(), 0, 1, TimeUnit.HOURS);
+
+// Submit with Future
+Future&lt;String&gt; future = pool.submit(() -> fetchData());
+String result = future.get(5, TimeUnit.SECONDS); // blocking with timeout
+
+// Always shutdown!
+pool.shutdown();
+pool.awaitTermination(60, TimeUnit.SECONDS);</pre>
+<strong>Thread pool sizing:</strong><br>
+CPU-bound: <code>N+1</code> threads (N = CPU cores, +1 for page faults)<br>
+IO-bound: <code>N × (1 + wait_time/service_time)</code> — can be much larger (e.g., 100+)
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Deadlock — causes, detection, and prevention strategies</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<strong>Deadlock conditions (all 4 must hold):</strong> Mutual exclusion, Hold and wait, No preemption, Circular wait.<br>
+Break any one condition to prevent deadlock.
+<pre>// Classic deadlock
+Object lockA = new Object(), lockB = new Object();
+Thread t1 = new Thread(() -> {
+    synchronized(lockA) {
+        Thread.sleep(100);
+        synchronized(lockB) { } // waits for lockB
+    }
+});
+Thread t2 = new Thread(() -> {
+    synchronized(lockB) {
+        Thread.sleep(100);
+        synchronized(lockA) { } // waits for lockA — DEADLOCK!
+    }
+});
+
+// Prevention: always acquire locks in same order
+Thread t1fixed = new Thread(() -> {
+    synchronized(lockA) { synchronized(lockB) { } }
+});
+Thread t2fixed = new Thread(() -> {
+    synchronized(lockA) { synchronized(lockB) { } } // same order
+});
+
+// Detection: jstack, thread dumps, or tryLock with timeout
+ReentrantLock lock = new ReentrantLock();
+if (lock.tryLock(2, TimeUnit.SECONDS)) {
+    try { /* work */ } finally { lock.unlock(); }
+} else { /* handle timeout — avoid deadlock */ }</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">JVM memory model — heap, stack, metaspace, GC types</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<strong>JVM Memory Areas:</strong><br>
+• <strong>Heap</strong> — objects, class instances. Divided into Young Gen (Eden + S0/S1) and Old Gen (Tenured)<br>
+• <strong>Stack</strong> — per-thread; stores method frames, local variables, partial results<br>
+• <strong>Metaspace</strong> (Java 8+, replaced PermGen) — class metadata, static fields<br>
+• <strong>Code Cache</strong> — JIT-compiled native code<br>
+• <strong>Direct Memory</strong> — off-heap, used by NIO ByteBuffer<br><br>
+<strong>GC Types:</strong><br>
+• Serial GC — single thread, small heaps<br>
+• Parallel GC — multi-thread STW (Stop-The-World), throughput focus<br>
+• G1 GC — default since Java 9. Region-based, predictable pause times<br>
+• ZGC/Shenandoah — concurrent, sub-millisecond pauses, Java 15+<br><br>
+<strong>OOM types:</strong> java.lang.OutOfMemoryError: Java heap space (objects), Metaspace (class loading leak), GC overhead limit exceeded (GC taking &gt;98% time)
+</div></li>
+</ul>
+</div></div>
+
+<!-- ════════════════════════════════════════════════ SPRING BOOT ════ -->
+<div id="springboot" class="section"><div class="container">
+<div class="sec-title">🌱 Spring Boot</div>
+<p class="sec-sub">DI · Auto-config · REST · Security · Data · AOP · Caching — expect 30–40% of questions here</p>
+<div class="info tip"><strong>Cross-topic alert:</strong> Spring Boot connects to ALL other topics — it's the glue. Expect: "How do you integrate MongoDB in Spring Boot?" → "How does @Transactional work with MongoDB?" → "How do you test that with @DataMongoTest?" Be ready for these chains.</div>
+
+<div class="card"><h3>Critical Annotations — Know Every Single One</h3>
+<div class="ann-grid">
+<div class="ann"><h4>@SpringBootApplication</h4><p>= @Configuration + @EnableAutoConfiguration + @ComponentScan. Entry point. Scans from its package downward.</p></div>
+<div class="ann"><h4>@RestController</h4><p>= @Controller + @ResponseBody. All methods return JSON/XML. No ViewResolver involved.</p></div>
+<div class="ann"><h4>@Service / @Repository / @Component</h4><p>All create beans. @Repository adds exception translation (DB → DataAccessException). @Service is semantic. @Component is generic.</p></div>
+<div class="ann"><h4>@Autowired</h4><p>Injects by type. On constructor (preferred), setter, or field. Use @Qualifier("beanName") when multiple candidates exist.</p></div>
+<div class="ann"><h4>@Transactional</h4><p>Wraps in DB transaction. PROPAGATION_REQUIRED default (reuse existing). readOnly=true optimizes queries. rollbackFor = specific exceptions.</p></div>
+<div class="ann"><h4>@ControllerAdvice / @ExceptionHandler</h4><p>Global exception handling. @ControllerAdvice applies to all controllers. @ExceptionHandler maps exception type to handler method.</p></div>
+<div class="ann"><h4>@Value / @ConfigurationProperties</h4><p>@Value("${app.key}") injects single property. @ConfigurationProperties(prefix="app") maps group of props to POJO — preferred.</p></div>
+<div class="ann"><h4>@Cacheable / @CacheEvict / @CachePut</h4><p>@Cacheable — return cached value if exists. @CacheEvict — remove from cache. @CachePut — update cache. Uses SpEL for key.</p></div>
+<div class="ann"><h4>@Scheduled</h4><p>Schedule methods: cron, fixedRate, fixedDelay. Needs @EnableScheduling on config class.</p></div>
+<div class="ann"><h4>@Async</h4><p>Run method asynchronously in thread pool. Needs @EnableAsync. Returns void or Future/CompletableFuture.</p></div>
+<div class="ann"><h4>@Profile</h4><p>Activate beans for specific profiles (dev, prod, test). Set via spring.profiles.active property or env var.</p></div>
+<div class="ann"><h4>@ConditionalOnProperty / @ConditionalOnClass</h4><p>Auto-config conditions. Bean only created if property/class exists. Use for feature flags and conditional wiring.</p></div>
+</div></div>
+
+<ul class="qa-list">
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Explain Spring IoC container — BeanFactory vs ApplicationContext, bean scopes</span><div class="qa-badges"><span class="d-m">Medium</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<strong>IoC (Inversion of Control):</strong> The framework creates and manages objects (beans), not the application code. You declare what you need; Spring injects it.<br><br>
+<strong>BeanFactory</strong> — basic IoC container. Lazy initialization (beans created on first request). Rarely used directly.<br>
+<strong>ApplicationContext</strong> — extends BeanFactory. Adds: event publishing, i18n, resource loading, AOP, eager singleton initialization. Always use this in Spring Boot.<br><br>
+<strong>Bean Scopes:</strong><br>
+• <code>singleton</code> (default) — one instance per ApplicationContext. Shared across the app.<br>
+• <code>prototype</code> — new instance each time bean is requested. Not managed after creation (no destroy callback).<br>
+• <code>request</code> — one per HTTP request (web apps only)<br>
+• <code>session</code> — one per HTTP session<br>
+• <code>application</code> — one per ServletContext<br>
+<pre>@Bean
+@Scope("prototype") // new instance each time
+public OrderValidator orderValidator() { return new OrderValidator(); }
+
+// Inject prototype into singleton — use ObjectFactory
+@Service
+public class OrderService {
+    @Autowired ObjectFactory&lt;OrderValidator&gt; validatorFactory;
+    
+    public void process(Order order) {
+        OrderValidator validator = validatorFactory.getObject(); // fresh instance
+    }
+}</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">How does @Transactional work internally? What are propagation types?</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+Spring creates a proxy (JDK dynamic proxy or CGLIB) around the bean. The proxy intercepts method calls and manages the transaction via PlatformTransactionManager.<br><br>
+<strong>Important gotchas:</strong><br>
+1. @Transactional only works on public methods (proxy can't intercept private/package)<br>
+2. Self-invocation bypasses the proxy: calling another @Transactional method within the same class won't start a new transaction<br>
+3. Default rollback only on RuntimeException, not checked exceptions. Use <code>rollbackFor=Exception.class</code> for all.<br><br>
+<strong>Propagation types:</strong>
+<table class="ctable"><tr><th>Type</th><th>Behaviour</th></tr>
+<tr><td>REQUIRED (default)</td><td>Join existing TX or create new one</td></tr>
+<tr><td>REQUIRES_NEW</td><td>Always create new TX, suspend existing</td></tr>
+<tr><td>NESTED</td><td>Savepoint in existing TX — partial rollback possible</td></tr>
+<tr><td>SUPPORTS</td><td>Join if exists, proceed without TX if not</td></tr>
+<tr><td>NOT_SUPPORTED</td><td>Suspend TX if exists, run without</td></tr>
+<tr><td>MANDATORY</td><td>Must have existing TX, else throw</td></tr>
+<tr><td>NEVER</td><td>Must NOT have TX, else throw</td></tr></table>
+<pre>@Transactional(propagation = Propagation.REQUIRES_NEW, 
+               rollbackFor = Exception.class,
+               timeout = 30,
+               readOnly = false)
+public Order createOrder(CreateOrderRequest req) { ... }</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">What is AOP? Explain Aspect, Advice, Pointcut, JoinPoint with a real example</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<strong>AOP (Aspect Oriented Programming)</strong> separates cross-cutting concerns (logging, security, transactions, metrics) from business logic.<br><br>
+• <strong>Aspect</strong> — the class containing cross-cutting logic (@Aspect)<br>
+• <strong>JoinPoint</strong> — a point in execution (method call, exception thrown)<br>
+• <strong>Pointcut</strong> — expression selecting which JoinPoints to intercept<br>
+• <strong>Advice</strong> — code to run: @Before, @After, @AfterReturning, @AfterThrowing, @Around<br>
+<pre>@Aspect
+@Component
+public class ExecutionTimeAspect {
+
+    // Pointcut: any method in service package
+    @Pointcut("execution(* com.myapp.service.*.*(..))")
+    public void serviceLayer() {}
+
+    @Around("serviceLayer()")
+    public Object logExecutionTime(ProceedingJoinPoint jp) throws Throwable {
+        long start = System.currentTimeMillis();
+        try {
+            Object result = jp.proceed(); // execute actual method
+            long elapsed = System.currentTimeMillis() - start;
+            log.info("{} executed in {}ms", jp.getSignature().getName(), elapsed);
+            return result;
+        } catch (Exception e) {
+            log.error("Exception in {}: {}", jp.getSignature(), e.getMessage());
+            throw e;
+        }
+    }
+
+    @Before("@annotation(com.myapp.annotation.RequiresAdmin)")
+    public void checkAdminRole(JoinPoint jp) {
+        if (!SecurityContext.isAdmin()) throw new AccessDeniedException("Admin required");
+    }
+}</pre>
+Spring's @Transactional itself is implemented with AOP — a Pointcut on @Transactional methods, Around advice managing the TX.
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Spring Boot Caching — setup, @Cacheable internals, eviction strategies</span><div class="qa-badges"><span class="d-m">Medium</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>// 1. Enable caching
+@SpringBootApplication
+@EnableCaching
+public class App { }
+
+// 2. application.yml — use Redis as backend
+spring.cache.type=redis
+spring.redis.host=localhost
+spring.redis.port=6379
+
+// 3. Service methods
+@Service
+public class ProductService {
+
+    @Cacheable(value = "products", key = "#id", 
+               condition = "#id != null",
+               unless = "#result == null")
+    public Product findById(String id) {
+        return productRepo.findById(id).orElse(null);
+    }
+
+    @CachePut(value = "products", key = "#product.id")
+    public Product update(Product product) { // updates cache AND DB
+        return productRepo.save(product);
+    }
+
+    @CacheEvict(value = "products", key = "#id")
+    public void delete(String id) { productRepo.deleteById(id); }
+
+    @CacheEvict(value = "products", allEntries = true) // clear all
+    @Scheduled(cron = "0 0 * * * *") // every hour
+    public void evictAllCache() { }
+}</pre>
+<strong>Cache-aside pattern</strong> (what @Cacheable implements): Check cache → if miss, load from DB → put in cache → return.<br>
+<strong>Cache eviction strategies:</strong> TTL (time-based), LRU (least recently used), LFU (least frequently used).
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Spring Boot Security — complete JWT implementation walkthrough</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>// JWT Utility
+@Component
+public class JwtUtil {
+    @Value("${jwt.secret}") private String secret;
+    @Value("${jwt.expiration}") private long expiration;
+
+    public String generateToken(UserDetails user) {
+        return Jwts.builder()
+            .setSubject(user.getUsername())
+            .setIssuedAt(new Date())
+            .setExpiration(new Date(System.currentTimeMillis() + expiration))
+            .claim("roles", user.getAuthorities().toString())
+            .signWith(Keys.hmacShaKeyFor(secret.getBytes()), SignatureAlgorithm.HS256)
+            .compact();
+    }
+
+    public String extractUsername(String token) {
+        return getClaims(token).getSubject();
+    }
+
+    public boolean validateToken(String token, UserDetails user) {
+        return extractUsername(token).equals(user.getUsername()) 
+            && !getClaims(token).getExpiration().before(new Date());
+    }
+
+    private Claims getClaims(String token) {
+        return Jwts.parserBuilder().setSigningKey(secret.getBytes())
+            .build().parseClaimsJws(token).getBody();
+    }
+}
+
+// Filter
+@Component
+public class JwtFilter extends OncePerRequestFilter {
+    @Autowired JwtUtil jwtUtil;
+    @Autowired UserDetailsService userDetailsService;
+
+    @Override
+    protected void doFilterInternal(HttpServletRequest req, 
+            HttpServletResponse res, FilterChain chain) throws ... {
+        String header = req.getHeader("Authorization");
+        String token = null, username = null;
+        if (header != null && header.startsWith("Bearer ")) {
+            token = header.substring(7);
+            username = jwtUtil.extractUsername(token);
+        }
+        if (username != null && SecurityContextHolder.getContext()
+                .getAuthentication() == null) {
+            UserDetails ud = userDetailsService.loadUserByUsername(username);
+            if (jwtUtil.validateToken(token, ud)) {
+                UsernamePasswordAuthenticationToken auth =
+                    new UsernamePasswordAuthenticationToken(ud, null, ud.getAuthorities());
+                auth.setDetails(new WebAuthenticationDetailsSource().buildDetails(req));
+                SecurityContextHolder.getContext().setAuthentication(auth);
+            }
+        }
+        chain.doFilter(req, res);
+    }
+}</pre>
+</div></li>
+</ul>
+</div></div>
+
+<!-- ════════════════════════════════════════════════ MICROSERVICES ════ -->
+<div id="microservices" class="section"><div class="container">
+<div class="sec-title">🏗️ Microservices</div>
+<p class="sec-sub">Architecture · Communication · Resilience · Patterns · Deployment — expect design + code questions</p>
+<div class="info tip"><strong>Cross-topic alert:</strong> Microservices questions link to: Spring Boot (how services are built), MongoDB (database per service), REST APIs (how services communicate), JUnit (contract testing, integration tests), System Design (architecture diagrams).</div>
+
+<ul class="qa-list">
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">How do you decompose a monolith into microservices? What patterns guide decomposition?</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<strong>Decomposition strategies:</strong><br>
+1. <strong>By Business Capability</strong> — map to what the business does: Order Management, Inventory, Payments, Shipping, Notifications. Most natural alignment.<br>
+2. <strong>By Subdomain (DDD)</strong> — identify Bounded Contexts. Each BC has its own Ubiquitous Language and model. Core domain (competitive advantage) vs Supporting domain vs Generic domain.<br>
+3. <strong>Strangler Fig Pattern</strong> — incrementally replace monolith functionality. Route traffic to new services via API Gateway, keep monolith running until fully replaced.<br><br>
+<strong>Warning signs that a service is too big:</strong> large team needed to change it, deployment blocks others, multiple business capabilities in one codebase.<br>
+<strong>Warning signs service is too small (nano-services):</strong> chatty inter-service calls, transactions span many services, high operational overhead.
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">API Gateway — responsibilities, patterns, and Spring Cloud Gateway config</span><div class="qa-badges"><span class="d-m">Medium</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<strong>API Gateway responsibilities:</strong> Request routing, auth/authz, rate limiting, SSL termination, request/response transformation, load balancing, circuit breaking, request logging.<br><br>
+<strong>Patterns:</strong> Backend-for-Frontend (BFF) — separate gateway per client type (mobile BFF, web BFF) because clients need different data shapes.
+<pre># Spring Cloud Gateway — application.yml
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: order-service
+          uri: lb://ORDER-SERVICE   # lb = load balanced via Eureka
+          predicates:
+            - Path=/api/orders/**
+          filters:
+            - StripPrefix=1
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 100
+                redis-rate-limiter.burstCapacity: 200
+            - name: CircuitBreaker
+              args:
+                name: orderCB
+                fallbackUri: forward:/fallback/orders
+        - id: auth-service
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/api/auth/**</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Event-driven architecture — Kafka deep dive for microservices</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<strong>Kafka concepts:</strong><br>
+• <strong>Topic</strong> — named stream of records<br>
+• <strong>Partition</strong> — ordered, immutable sequence within topic. Enables parallelism. Records with same key go to same partition (ordering guarantee).<br>
+• <strong>Consumer Group</strong> — multiple consumers share work. Each partition consumed by one consumer in a group at a time.<br>
+• <strong>Offset</strong> — position of consumer in partition. Commit offset to mark processed.<br>
+• <strong>Retention</strong> — messages kept for configured time (default 7 days), regardless of consumption.<br>
+<pre>// Producer
+@Service
+public class OrderEventPublisher {
+    @Autowired KafkaTemplate&lt;String, OrderEvent&gt; kafkaTemplate;
+    
+    public void publishOrderCreated(Order order) {
+        OrderEvent event = OrderEvent.builder()
+            .eventType("ORDER_CREATED").orderId(order.getId())
+            .userId(order.getUserId()).timestamp(Instant.now()).build();
+        // key = orderId ensures all events for same order → same partition
+        kafkaTemplate.send("order-events", order.getId(), event)
+            .addCallback(
+                result -> log.info("Published: {}", result.getRecordMetadata()),
+                ex -> log.error("Failed to publish", ex)
+            );
+    }
+}
+
+// Consumer
+@Service
+public class InventoryEventConsumer {
+    @KafkaListener(topics = "order-events", groupId = "inventory-group",
+                   containerFactory = "kafkaListenerContainerFactory")
+    public void handleOrderEvent(OrderEvent event, 
+                                  @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition,
+                                  @Header(KafkaHeaders.OFFSET) long offset) {
+        log.info("Received from partition {} offset {}: {}", partition, offset, event);
+        try {
+            inventoryService.reserveStock(event);
+        } catch (Exception e) {
+            // Dead letter topic — send to DLQ for manual retry
+            kafkaTemplate.send("order-events-dlt", event);
+        }
+    }
+}
+
+// application.yml
+spring.kafka:
+  bootstrap-servers: kafka:9092
+  consumer:
+    group-id: inventory-group
+    auto-offset-reset: earliest
+    enable-auto-commit: false  # manual commit for at-least-once
+  producer:
+    acks: all  # wait for all replicas
+    retries: 3</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Outbox Pattern — solving dual write problem in microservices</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<strong>Problem:</strong> After saving to DB, if Kafka publish fails — state is inconsistent. You can't atomically write to DB AND publish to Kafka.<br><br>
+<strong>Outbox Pattern:</strong> Write event to an OUTBOX table in same DB transaction as business data. A separate relay process (Debezium CDC or polling) reads the outbox and publishes to Kafka. Guarantees exactly-once semantics at the DB level.
+<pre>// Same transaction: save order + outbox event
+@Transactional
+public Order createOrder(CreateOrderRequest req) {
+    Order order = orderRepo.save(mapToOrder(req));
+    
+    // Write to OUTBOX in same transaction
+    OutboxEvent outboxEvent = OutboxEvent.builder()
+        .aggregateId(order.getId())
+        .aggregateType("Order")
+        .eventType("ORDER_CREATED")
+        .payload(toJson(order))
+        .status("PENDING")
+        .createdAt(Instant.now())
+        .build();
+    outboxRepo.save(outboxEvent);
+    
+    return order;
+}
+
+// Relay: polls outbox and publishes
+@Scheduled(fixedDelay = 1000)
+@Transactional
+public void relayOutboxEvents() {
+    outboxRepo.findByStatus("PENDING").forEach(event -> {
+        kafkaTemplate.send(event.getEventType(), event.getAggregateId(), 
+                           event.getPayload());
+        event.setStatus("PUBLISHED");
+        outboxRepo.save(event);
+    });
+}</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">How do microservices handle configuration management?</span><div class="qa-badges"><span class="d-m">Medium</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<strong>Options:</strong><br>
+1. <strong>Spring Cloud Config Server</strong> — central config backed by Git. Services fetch config at startup. Supports env-specific configs (dev/prod). Spring Cloud Bus + Kafka enables dynamic refresh without restart.<br>
+2. <strong>Kubernetes ConfigMaps &amp; Secrets</strong> — inject config as env vars or mounted files. Most cloud-native approach.<br>
+3. <strong>HashiCorp Vault</strong> — for secrets management (DB passwords, API keys). Dynamic secrets, rotation, audit trail.<br>
+<pre># Config server: application.yml in each service
+spring:
+  config:
+    import: optional:configserver:http://config-server:8888
+  application.name: order-service
+  profiles.active: ${SPRING_PROFILES_ACTIVE:dev}
+
+# Dynamic refresh without restart
+@RefreshScope  // re-creates bean when /actuator/refresh called
+@Service
+public class FeatureFlagService {
+    @Value("${feature.newCheckout:false}")
+    private boolean newCheckoutEnabled;
+}</pre>
+</div></li>
+</ul>
+</div></div>
+
+<!-- ════════════════════════════════════════════════ MONGODB ════ -->
+<div id="mongodb" class="section"><div class="container">
+<div class="sec-title">🍃 MongoDB</div>
+<p class="sec-sub">Document model · CRUD · Aggregation · Indexing · Transactions · Schema Design · Spring Data</p>
+<div class="info tip"><strong>Cross-topic alert:</strong> Expect bridging to Spring Boot (@Document, MongoTemplate, @Transactional with MongoDB), to System Design (when to pick MongoDB vs Oracle), and to Microservices (database per service with MongoDB).</div>
+
+<ul class="qa-list">
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">MongoDB data model — embedding vs referencing, when to use each</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<strong>Embed (nested document)</strong> when: data is always accessed together, child data doesn't exist independently, 1:1 or 1:few relationship, document stays under 16MB BSON limit.
+<pre>// Embedded — Order with items inside (always fetched together)
+{
+  "_id": "ord-123",
+  "userId": "usr-456",
+  "status": "COMPLETED",
+  "items": [
+    { "productId": "p1", "name": "Laptop", "qty": 1, "price": 999.99 },
+    { "productId": "p2", "name": "Mouse", "qty": 2, "price": 29.99 }
+  ],
+  "shippingAddress": { "street": "123 Main St", "city": "Delhi" }
+}</pre>
+<strong>Reference (store ID)</strong> when: data is accessed independently, 1:many with unbounded growth, data is shared across documents (user profile referenced by orders), updates are frequent on the referenced document.
+<pre>// Referenced — Order references User (user data accessed independently)
+{ "_id": "ord-123", "userId": "usr-456", "items": [...] }
+{ "_id": "usr-456", "name": "John", "email": "john@example.com" }
+
+// Use $lookup to join at query time</pre>
+<strong>Hybrid:</strong> Embed a snapshot of critical data (product name, price at order time) to avoid JOIN + protect against future price changes.
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Write a 5-stage aggregation pipeline — real-world use case</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+Use case: Monthly sales report — revenue by category, top 5 categories, last 90 days, completed orders only.
+<pre>db.orders.aggregate([
+  // Stage 1: Match — filter completed orders in last 90 days
+  { $match: {
+      status: "COMPLETED",
+      createdAt: { $gte: new Date(Date.now() - 90 * 24 * 60 * 60 * 1000) }
+  }},
+
+  // Stage 2: Unwind — flatten items array
+  { $unwind: "$items" },
+
+  // Stage 3: Lookup — join with products collection
+  { $lookup: {
+      from: "products",
+      localField: "items.productId",
+      foreignField: "_id",
+      as: "product"
+  }},
+  { $unwind: "$product" },
+
+  // Stage 4: Group — sum revenue per category per month
+  { $group: {
+      _id: {
+          category: "$product.category",
+          month: { $dateToString: { format: "%Y-%m", date: "$createdAt" } }
+      },
+      totalRevenue: { $sum: { $multiply: ["$items.price", "$items.qty"] } },
+      orderCount: { $sum: 1 },
+      avgOrderValue: { $avg: { $multiply: ["$items.price", "$items.qty"] } }
+  }},
+
+  // Stage 5: Sort + Project + Limit
+  { $sort: { totalRevenue: -1 } },
+  { $project: {
+      _id: 0,
+      category: "$_id.category",
+      month: "$_id.month",
+      totalRevenue: { $round: ["$totalRevenue", 2] },
+      orderCount: 1,
+      avgOrderValue: { $round: ["$avgOrderValue", 2] }
+  }},
+  { $limit: 5 }
+])</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">MongoDB indexing — ESR rule, explain() output, compound index strategy</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<strong>ESR Rule (Equality → Sort → Range)</strong> — optimal compound index field order:<br>
+1. Fields used in equality checks first<br>
+2. Fields used in sort next<br>
+3. Fields used in range queries last<br>
+<pre>// Query: find ACTIVE users in city "Delhi", sorted by name
+db.users.find({ status: "ACTIVE", city: "Delhi" }).sort({ name: 1 })
+
+// ESR index: status (equality), name (sort), city (range if needed)
+db.users.createIndex({ status: 1, name: 1, city: 1 })
+
+// Reading explain() output
+db.users.find({status:"ACTIVE"}).explain("executionStats")
+// Look for:
+// "stage": "IXSCAN" → index used ✅
+// "stage": "COLLSCAN" → full scan, add index ❌
+// "nReturned" vs "totalKeysExamined" — should be close
+// "executionTimeMillis" — total time
+
+// Sparse index — only indexes docs where field exists
+db.users.createIndex({ email: 1 }, { sparse: true, unique: true })
+
+// TTL index — auto-delete sessions after 30 min
+db.sessions.createIndex({ lastActivity: 1 }, { expireAfterSeconds: 1800 })
+
+// Partial index — only active users
+db.users.createIndex({ email: 1 }, 
+    { partialFilterExpression: { status: "ACTIVE" } })</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">MongoDB transactions — multi-document ACID, how to use in Spring Boot</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+Single-document operations are always atomic in MongoDB. Multi-document ACID transactions require replica set (available since v4.0) or sharded cluster (v4.2).
+<pre>// Spring Boot — @Transactional works with MongoTransactionManager
+@Configuration
+public class MongoConfig {
+    @Bean
+    public MongoTransactionManager transactionManager(MongoDatabaseFactory factory) {
+        return new MongoTransactionManager(factory);
+    }
+}
+
+// application.yml
+spring.data.mongodb.uri: mongodb://localhost:27017/mydb?replicaSet=rs0
+
+// Service — @Transactional on MongoDB operations
+@Transactional
+public void transferCredit(String fromUserId, String toUserId, int amount) {
+    User from = userRepo.findById(fromUserId).orElseThrow();
+    User to = userRepo.findById(toUserId).orElseThrow();
+    
+    if (from.getCredits() < amount) throw new InsufficientCreditsException();
+    
+    from.setCredits(from.getCredits() - amount);
+    to.setCredits(to.getCredits() + amount);
+    
+    userRepo.save(from);
+    userRepo.save(to); // if this fails, both are rolled back
+}
+
+// Native transaction API (when more control needed)
+public void nativeTransaction() {
+    try (ClientSession session = mongoClient.startSession()) {
+        session.withTransaction(() -> {
+            // operations using session
+        });
+    }
+}</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">MongoDB change streams — real-time data processing</span><div class="qa-badges"><span class="d-m">Medium</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+Change streams allow applications to subscribe to real-time change notifications from MongoDB. Built on the oplog (operation log). Requires replica set.
+<pre>// Spring Data MongoDB change streams
+@Service
+public class OrderChangeStreamService {
+    @Autowired MongoTemplate mongoTemplate;
+
+    @PostConstruct
+    public void listenToOrderChanges() {
+        Flux&lt;ChangeStreamEvent&lt;Order&gt;&gt; changeStream = 
+            mongoTemplate.changeStream("orders",
+                ChangeStreamOptions.builder()
+                    .filter(Aggregation.newAggregation(
+                        Aggregation.match(Criteria.where("operationType").is("insert"))
+                    ))
+                    .returnFullDocumentOnUpdate()
+                    .build(),
+                Order.class);
+
+        changeStream.subscribe(event -> {
+            Order order = event.getBody();
+            log.info("New order created: {}", order.getId());
+            notificationService.sendOrderConfirmation(order);
+        });
+    }
+}
+
+// Use cases: real-time dashboards, event sourcing, 
+// cache invalidation, audit logging, Debezium CDC alternative</pre>
+</div></li>
+</ul>
+</div></div>
+
+<!-- ════════════════════════════════════════════════ ORACLE ════ -->
+<div id="oracle" class="section"><div class="container">
+<div class="sec-title">🗄️ Oracle / SQL</div>
+<p class="sec-sub">Oracle-specific features · SQL tuning · PL/SQL · Window functions · Transactions · Joins</p>
+
+<ul class="qa-list">
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">All types of JOINs — explain with examples and when each is appropriate</span><div class="qa-badges"><span class="d-e">Easy</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>-- INNER JOIN — only matching rows from both tables
+SELECT o.order_id, u.user_name, o.amount
+FROM orders o INNER JOIN users u ON o.user_id = u.id;
+
+-- LEFT OUTER JOIN — all rows from left, matching from right (NULL if no match)
+SELECT u.user_name, COUNT(o.order_id) AS order_count
+FROM users u LEFT JOIN orders o ON u.id = o.user_id
+GROUP BY u.user_name;  -- includes users with 0 orders
+
+-- RIGHT OUTER JOIN — all rows from right, matching from left
+-- (usually rewritten as LEFT JOIN by swapping tables)
+
+-- FULL OUTER JOIN — all rows from both, NULLs where no match
+SELECT u.user_name, o.order_id
+FROM users u FULL OUTER JOIN orders o ON u.id = o.user_id;
+
+-- CROSS JOIN — cartesian product (every row × every row)
+SELECT p1.name, p2.name FROM products p1 CROSS JOIN products p2;
+
+-- SELF JOIN — join table with itself (org hierarchy)
+SELECT e.emp_name, m.emp_name AS manager
+FROM employees e LEFT JOIN employees m ON e.manager_id = m.emp_id;
+
+-- Oracle-specific: NATURAL JOIN (joins on all same-named columns — avoid in prod)</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Window functions — comprehensive examples (RANK, ROW_NUMBER, LAG, LEAD, NTILE)</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>-- RANK vs DENSE_RANK vs ROW_NUMBER
+SELECT emp_name, dept, salary,
+    ROW_NUMBER() OVER (PARTITION BY dept ORDER BY salary DESC) AS row_num,
+    -- assigns unique sequential numbers, no ties
+    RANK()       OVER (PARTITION BY dept ORDER BY salary DESC) AS rnk,
+    -- ties get same rank, next rank skipped (1,1,3)
+    DENSE_RANK() OVER (PARTITION BY dept ORDER BY salary DESC) AS dense_rnk
+    -- ties same rank, next rank NOT skipped (1,1,2)
+FROM employees;
+
+-- LAG / LEAD — access previous/next row values
+SELECT month, revenue,
+    LAG(revenue, 1, 0) OVER (ORDER BY month) AS prev_month,
+    LEAD(revenue, 1, 0) OVER (ORDER BY month) AS next_month,
+    revenue - LAG(revenue,1,0) OVER (ORDER BY month) AS mom_change
+FROM monthly_sales;
+
+-- Running totals and moving averages
+SELECT sale_date, amount,
+    SUM(amount) OVER (ORDER BY sale_date ROWS UNBOUNDED PRECEDING) AS running_total,
+    AVG(amount) OVER (ORDER BY sale_date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS week_avg,
+    SUM(amount) OVER (PARTITION BY TO_CHAR(sale_date,'YYYY-MM')) AS month_total
+FROM daily_sales;
+
+-- NTILE — divide into equal buckets (quartiles, deciles)
+SELECT emp_name, salary,
+    NTILE(4) OVER (ORDER BY salary) AS salary_quartile
+FROM employees;
+
+-- FIRST_VALUE / LAST_VALUE in window
+SELECT dept, emp_name, salary,
+    FIRST_VALUE(emp_name) OVER (PARTITION BY dept ORDER BY salary DESC) AS top_earner,
+    LAST_VALUE(salary) OVER (PARTITION BY dept ORDER BY salary 
+        ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS min_salary
+FROM employees;</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Oracle query optimization — full toolkit</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>-- 1. EXPLAIN PLAN
+EXPLAIN PLAN FOR
+SELECT * FROM orders WHERE user_id = 1001 AND status = 'PENDING';
+SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY(format => 'ALLSTATS LAST'));
+-- Look for: TABLE ACCESS FULL (bad), INDEX RANGE SCAN (good)
+
+-- 2. Use BIND variables — prevents hard parsing
+-- BAD: SELECT * FROM users WHERE id = 1001  (new SQL each time)
+-- GOOD: SELECT * FROM users WHERE id = :user_id
+
+-- 3. Function on indexed column defeats index
+-- BAD: WHERE UPPER(last_name) = 'SMITH'
+-- GOOD: Create function-based index
+CREATE INDEX idx_upper_name ON employees(UPPER(last_name));
+-- NOW: WHERE UPPER(last_name) = 'SMITH' uses the index
+
+-- 4. Gather stats (stale stats mislead optimizer)
+EXEC DBMS_STATS.GATHER_TABLE_STATS('HR', 'EMPLOYEES', CASCADE => TRUE);
+
+-- 5. Hints (use sparingly — temporary fix)
+SELECT /*+ INDEX(o idx_orders_status) */ * FROM orders o WHERE status = 'PENDING';
+SELECT /*+ PARALLEL(8) */ * FROM large_table;
+SELECT /*+ RESULT_CACHE */ department_id, COUNT(*) FROM employees GROUP BY department_id;
+
+-- 6. Partitioning — partition pruning reduces scanned data
+CREATE TABLE orders (
+    order_id NUMBER, order_date DATE, amount NUMBER
+) PARTITION BY RANGE (order_date) (
+    PARTITION p2024q1 VALUES LESS THAN (DATE '2024-04-01'),
+    PARTITION p2024q2 VALUES LESS THAN (DATE '2024-07-01'),
+    PARTITION p_future VALUES LESS THAN (MAXVALUE)
+);
+-- Query: WHERE order_date BETWEEN '2024-01-01' AND '2024-03-31'
+-- → Only scans p2024q1 partition</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">PL/SQL — triggers, packages, and exception propagation</span><div class="qa-badges"><span class="d-m">Medium</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>-- PACKAGE (group related procedures/functions)
+CREATE OR REPLACE PACKAGE order_pkg AS
+    PROCEDURE create_order(p_user_id IN NUMBER, p_amount IN NUMBER, 
+                           p_order_id OUT NUMBER);
+    FUNCTION get_order_total(p_user_id IN NUMBER) RETURN NUMBER;
+    -- Can have package-level variables (session-scoped state)
+END order_pkg;
+
+CREATE OR REPLACE PACKAGE BODY order_pkg AS
+    PROCEDURE create_order(p_user_id IN NUMBER, p_amount IN NUMBER,
+                           p_order_id OUT NUMBER) AS
+    BEGIN
+        INSERT INTO orders(user_id, amount, created_at)
+        VALUES(p_user_id, p_amount, SYSDATE)
+        RETURNING order_id INTO p_order_id;
+        COMMIT;
+    EXCEPTION
+        WHEN DUP_VAL_ON_INDEX THEN
+            ROLLBACK;
+            RAISE_APPLICATION_ERROR(-20001, 'Duplicate order for user: ' || p_user_id);
+        WHEN OTHERS THEN
+            ROLLBACK;
+            -- Log error
+            INSERT INTO error_log(msg, occurred_at) VALUES(SQLERRM, SYSDATE);
+            RAISE; -- re-raise to caller
+    END;
+END order_pkg;
+
+-- TRIGGER — audit log on update
+CREATE OR REPLACE TRIGGER trg_order_audit
+BEFORE UPDATE ON orders
+FOR EACH ROW
+BEGIN
+    INSERT INTO order_audit(order_id, old_status, new_status, changed_by, changed_at)
+    VALUES(:OLD.order_id, :OLD.status, :NEW.status, USER, SYSDATE);
+END;</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Subquery vs JOIN vs CTE (WITH clause) — performance and readability tradeoffs</span><div class="qa-badges"><span class="d-m">Medium</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>-- Correlated Subquery — runs once per outer row (SLOW for large data)
+SELECT emp_name FROM employees e
+WHERE salary > (SELECT AVG(salary) FROM employees WHERE dept_id = e.dept_id);
+
+-- Better as JOIN
+SELECT e.emp_name FROM employees e
+JOIN (SELECT dept_id, AVG(salary) avg_sal FROM employees GROUP BY dept_id) d
+  ON e.dept_id = d.dept_id AND e.salary > d.avg_sal;
+
+-- CTE (WITH clause) — readable, optimizer may materialize or inline
+WITH dept_avg AS (
+    SELECT dept_id, AVG(salary) avg_sal, MAX(salary) max_sal
+    FROM employees GROUP BY dept_id
+),
+top_earners AS (
+    SELECT e.*, d.avg_sal
+    FROM employees e JOIN dept_avg d ON e.dept_id = d.dept_id
+    WHERE e.salary > d.avg_sal * 1.5
+)
+SELECT emp_name, salary, avg_sal FROM top_earners ORDER BY salary DESC;
+
+-- Recursive CTE — hierarchy traversal (org chart)
+WITH RECURSIVE emp_hierarchy AS (
+    SELECT emp_id, emp_name, manager_id, 1 AS level
+    FROM employees WHERE manager_id IS NULL  -- top level
+    UNION ALL
+    SELECT e.emp_id, e.emp_name, e.manager_id, h.level + 1
+    FROM employees e JOIN emp_hierarchy h ON e.manager_id = h.emp_id
+)
+SELECT * FROM emp_hierarchy ORDER BY level, emp_name;</pre>
+</div></li>
+</ul>
+</div></div>
+
+<!-- ════════════════════════════════════════════════ JUNIT ════ -->
+<div id="junit" class="section"><div class="container">
+<div class="sec-title">🧪 JUnit 5 &amp; Testing</div>
+<p class="sec-sub">Unit testing · Mockito · Spring slices · TDD · Test doubles · Code coverage</p>
+<div class="info tip"><strong>Cross-topic alert:</strong> Testing bridges to Spring Boot (@SpringBootTest, @WebMvcTest, @DataMongoTest), Microservices (contract testing with Pact), and MongoDB (@DataMongoTest with embedded Mongo). Interviewers often ask: "How would you test this service you just described?"</div>
+
+<div class="card"><h3>JUnit 5 vs JUnit 4 — Complete Differences</h3>
+<div class="g2">
+<div><strong>JUnit 4</strong><br><code>@Before</code> → <code>@BeforeEach</code><br><code>@After</code> → <code>@AfterEach</code><br><code>@BeforeClass</code> → <code>@BeforeAll</code> (static)<br><code>@AfterClass</code> → <code>@AfterAll</code> (static)<br><code>@Ignore</code> → <code>@Disabled</code><br><code>@RunWith(X.class)</code> → <code>@ExtendWith(X.class)</code><br><code>@Rule</code> → <code>@ExtendWith</code><br><code>@Category</code> → <code>@Tag</code></div>
+<div><strong>JUnit 5 New Features</strong><br><code>@ParameterizedTest</code> — multiple inputs<br><code>@RepeatedTest(n)</code> — stress test<br><code>@DisplayName</code> — human-readable<br><code>@Nested</code> — group test classes<br><code>@TempDir</code> — temp dir injection<br><code>@TestMethodOrder</code> — ordering<br><code>@Timeout</code> — fail if exceeds time<br>Conditional: <code>@EnabledOnOs</code>, <code>@EnabledIfEnvVariable</code></div>
+</div></div>
+
+<ul class="qa-list">
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Complete Mockito guide — @Mock, @Spy, @Captor, @InjectMocks, argument matchers</span><div class="qa-badges"><span class="d-m">Medium</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>@ExtendWith(MockitoExtension.class)
+class OrderServiceTest {
+
+    @Mock OrderRepository orderRepo;
+    @Mock EmailService emailService;
+    @Mock PaymentGateway paymentGateway;
+
+    // Spy — wraps REAL object, only stub what you need
+    @Spy List&lt;String&gt; orderHistory = new ArrayList&lt;&gt;();
+
+    // Captor — capture argument passed to mock
+    @Captor ArgumentCaptor&lt;Order&gt; orderCaptor;
+    @Captor ArgumentCaptor&lt;String&gt; emailCaptor;
+
+    @InjectMocks OrderService orderService; // injects all @Mock and @Spy above
+
+    @Test
+    void createOrder_captureAndVerifyDetails() {
+        // Arrange
+        when(paymentGateway.charge(anyDouble())).thenReturn("txn-123");
+        when(orderRepo.save(any())).thenAnswer(inv -> {
+            Order o = inv.getArgument(0); // dynamic return
+            o.setId("gen-id-001");
+            return o;
+        });
+
+        // Act
+        orderService.createOrder(new CreateOrderRequest("usr1", 99.99));
+
+        // Capture & verify what was saved
+        verify(orderRepo).save(orderCaptor.capture());
+        Order saved = orderCaptor.getValue();
+        assertThat(saved.getUserId()).isEqualTo("usr1");
+        assertThat(saved.getAmount()).isEqualTo(99.99);
+
+        // Verify email sent with correct address
+        verify(emailService).sendConfirmation(emailCaptor.capture(), any());
+        assertThat(emailCaptor.getValue()).contains("usr1");
+
+        // Verify zero interactions with something that shouldn't be called
+        verifyNoInteractions(orderHistory);
+
+        // Verify exact number of invocations
+        verify(paymentGateway, times(1)).charge(99.99);
+        verify(orderRepo, never()).deleteById(any());
+    }
+
+    @Test
+    void getOrder_throwsWhenNotFound() {
+        when(orderRepo.findById("bad-id")).thenReturn(Optional.empty());
+        
+        assertThatThrownBy(() -> orderService.getOrder("bad-id"))
+            .isInstanceOf(OrderNotFoundException.class)
+            .hasMessage("Order not found: bad-id")
+            .hasNoCause();
+    }
+
+    @ParameterizedTest
+    @CsvSource({"PENDING,true", "PROCESSING,true", "COMPLETED,false"})
+    void cancelOrder_dependsOnStatus(String status, boolean canCancel) {
+        Order order = Order.builder().id("1").status(status).build();
+        when(orderRepo.findById("1")).thenReturn(Optional.of(order));
+        
+        if (canCancel) assertDoesNotThrow(() -> orderService.cancel("1"));
+        else assertThrows(OrderCannotBeCancelledException.class, () -> orderService.cancel("1"));
+    }
+}</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">@WebMvcTest — full controller test with MockMvc, JSON assertions, auth</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>@WebMvcTest(OrderController.class)
+@Import(SecurityConfig.class)
+class OrderControllerTest {
+
+    @Autowired MockMvc mockMvc;
+    @Autowired ObjectMapper objectMapper;
+    @MockBean OrderService orderService;
+    @MockBean JwtUtil jwtUtil;
+
+    @Test
+    @WithMockUser(username = "testuser", roles = "USER")
+    void createOrder_shouldReturn201WithLocation() throws Exception {
+        CreateOrderRequest req = new CreateOrderRequest("usr1", 99.99, List.of("p1"));
+        Order created = Order.builder().id("ord-1").userId("usr1").amount(99.99).build();
+        when(orderService.createOrder(any())).thenReturn(created);
+
+        mockMvc.perform(post("/api/v1/orders")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(req)))
+            .andExpect(status().isCreated())
+            .andExpect(header().string("Location", containsString("/api/v1/orders/ord-1")))
+            .andExpect(jsonPath("$.id").value("ord-1"))
+            .andExpect(jsonPath("$.amount").value(99.99))
+            .andExpect(jsonPath("$.userId").value("usr1"))
+            .andDo(print()); // prints request/response for debugging
+    }
+
+    @Test
+    void createOrder_withInvalidInput_shouldReturn400() throws Exception {
+        CreateOrderRequest invalid = new CreateOrderRequest(null, -1.0, List.of());
+        
+        mockMvc.perform(post("/api/v1/orders")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(invalid)))
+            .andExpect(status().isBadRequest())
+            .andExpect(jsonPath("$.errors").isArray())
+            .andExpect(jsonPath("$.errors[*].field", 
+                       hasItems("userId", "amount", "items")));
+    }
+
+    @Test
+    void getOrder_unauthenticated_shouldReturn401() throws Exception {
+        mockMvc.perform(get("/api/v1/orders/ord-1"))
+            .andExpect(status().isUnauthorized());
+    }
+}</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Integration testing — @SpringBootTest, Testcontainers for MongoDB and Kafka</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>// Testcontainers — real MongoDB + Kafka in Docker during tests
+@SpringBootTest
+@Testcontainers
+class OrderIntegrationTest {
+
+    @Container
+    static MongoDBContainer mongo = new MongoDBContainer("mongo:6.0");
+
+    @Container
+    static KafkaContainer kafka = new KafkaContainer(
+        DockerImageName.parse("confluentinc/cp-kafka:7.3.0"));
+
+    @DynamicPropertySource
+    static void props(DynamicPropertyRegistry registry) {
+        registry.add("spring.data.mongodb.uri", mongo::getReplicaSetUrl);
+        registry.add("spring.kafka.bootstrap-servers", kafka::getBootstrapServers);
+    }
+
+    @Autowired OrderService orderService;
+    @Autowired OrderRepository orderRepo;
+
+    @Test
+    void createOrder_shouldPersistAndPublishEvent() throws Exception {
+        CreateOrderRequest req = new CreateOrderRequest("usr1", 99.99, List.of("p1"));
+        
+        Order order = orderService.createOrder(req);
+        
+        // Verify DB persistence
+        Order fromDb = orderRepo.findById(order.getId()).orElseThrow();
+        assertThat(fromDb.getUserId()).isEqualTo("usr1");
+        assertThat(fromDb.getAmount()).isEqualByComparingTo(BigDecimal.valueOf(99.99));
+        
+        // Verify Kafka event (wait with timeout)
+        KafkaConsumer&lt;String, OrderEvent&gt; consumer = createConsumer();
+        consumer.subscribe(List.of("order-events"));
+        ConsumerRecords&lt;String, OrderEvent&gt; records = 
+            consumer.poll(Duration.ofSeconds(10));
+        assertThat(records.count()).isEqualTo(1);
+        assertThat(records.iterator().next().value().getOrderId())
+            .isEqualTo(order.getId());
+    }
+}</pre>
+</div></li>
+</ul>
+</div></div>
+
+<!-- ════════════════════════════════════════════════ REST ════ -->
+<div id="rest" class="section"><div class="container">
+<div class="sec-title">🌐 RESTful APIs &amp; Web Services</div>
+<p class="sec-sub">HTTP · REST principles · Versioning · Security · Performance · SOAP · GraphQL basics</p>
+
+<ul class="qa-list">
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Design a RESTful API for an Order Management System — full resource hierarchy</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>// Resource hierarchy — nouns not verbs, plural
+GET    /api/v1/users/{userId}/orders          // user's orders
+GET    /api/v1/users/{userId}/orders/{orderId} // specific order
+POST   /api/v1/users/{userId}/orders          // create order → 201 + Location header
+PUT    /api/v1/orders/{orderId}               // full replace → 200
+PATCH  /api/v1/orders/{orderId}               // partial update → 200
+DELETE /api/v1/orders/{orderId}               // delete → 204
+
+// Sub-resources
+GET    /api/v1/orders/{orderId}/items          // order items
+GET    /api/v1/orders/{orderId}/tracking       // shipping tracking
+
+// Filtering, sorting, pagination — query params
+GET /api/v1/orders?status=PENDING&userId=123&sort=createdAt,desc&page=0&size=20
+
+// Good response with HATEOAS links
+{
+  "id": "ord-123", "status": "PENDING", "amount": 99.99,
+  "_links": {
+    "self": { "href": "/api/v1/orders/ord-123" },
+    "cancel": { "href": "/api/v1/orders/ord-123/cancel", "method": "POST" },
+    "track": { "href": "/api/v1/orders/ord-123/tracking" }
+  }
+}
+
+// Spring Boot controller
+@RestController
+@RequestMapping("/api/v1/orders")
+@Validated
+public class OrderController {
+    
+    @PostMapping
+    public ResponseEntity&lt;OrderResponse&gt; createOrder(
+            @RequestBody @Valid CreateOrderRequest req,
+            UriComponentsBuilder uriBuilder) {
+        Order order = orderService.create(req);
+        URI location = uriBuilder.path("/api/v1/orders/{id}")
+            .buildAndExpand(order.getId()).toUri();
+        return ResponseEntity.created(location).body(mapToResponse(order));
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity&lt;OrderResponse&gt; patchOrder(
+            @PathVariable String id,
+            @RequestBody Map&lt;String, Object&gt; updates) {
+        Order updated = orderService.partialUpdate(id, updates);
+        return ResponseEntity.ok(mapToResponse(updated));
+    }
+
+    @GetMapping
+    public ResponseEntity&lt;Page&lt;OrderResponse&gt;&gt; listOrders(
+            @RequestParam(required = false) String status,
+            Pageable pageable) {
+        Page&lt;Order&gt; orders = orderService.findAll(status, pageable);
+        return ResponseEntity.ok(orders.map(this::mapToResponse));
+    }
+}</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Rate limiting — token bucket algorithm + implementation strategies</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<strong>Token Bucket:</strong> Bucket holds N tokens. Each request consumes 1 token. Tokens refill at fixed rate. Allows burst up to bucket size.<br>
+<strong>Leaky Bucket:</strong> Requests queued. Processed at fixed rate. Smooths bursts. Good for constant output rate.<br>
+<strong>Fixed Window:</strong> Count requests in time window. Simple but allows 2× burst at window boundary.<br>
+<strong>Sliding Window:</strong> More accurate, no boundary burst. Higher memory cost.
+<pre>// Spring Cloud Gateway rate limiter (Redis-backed token bucket)
+spring:
+  cloud:
+    gateway:
+      routes:
+        - filters:
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 100  # tokens per second
+                redis-rate-limiter.burstCapacity: 200   # max bucket size
+                key-resolver: "#{@userKeyResolver}"     # per-user limit
+
+// Custom key resolver
+@Bean
+KeyResolver userKeyResolver() {
+    return exchange -> Mono.justOrEmpty(exchange.getRequest()
+        .getHeaders().getFirst("X-User-Id"))
+        .defaultIfEmpty("anonymous");
+}
+
+// Response headers client should read:
+X-RateLimit-Limit: 100
+X-RateLimit-Remaining: 87
+X-RateLimit-Reset: 1234567890
+// If exceeded: 429 Too Many Requests + Retry-After header</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">REST API security — beyond JWT: OAuth2, CORS, CSRF, HTTPS considerations</span><div class="qa-badges"><span class="d-m">Medium</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<strong>OAuth2 flows:</strong><br>
+• Authorization Code (with PKCE) — for user-facing apps. Most secure.<br>
+• Client Credentials — service-to-service auth (no user involved)<br>
+• Implicit — deprecated (use Auth Code + PKCE)<br><br>
+<strong>CORS (Cross-Origin Resource Sharing):</strong> Browser blocks cross-origin requests by default. Server must send Access-Control-Allow-Origin header.
+<pre>@Configuration
+public class CorsConfig implements WebMvcConfigurer {
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/api/**")
+            .allowedOrigins("https://myapp.com")  // never * in prod
+            .allowedMethods("GET","POST","PUT","PATCH","DELETE")
+            .allowedHeaders("*")
+            .allowCredentials(true)
+            .maxAge(3600);
+    }
+}
+
+// CSRF: Stateless REST APIs with JWT don't need CSRF protection
+// (CSRF exploits session cookies; JWTs in Authorization header are not auto-sent by browsers)
+http.csrf(csrf -> csrf.disable()); // correct for JWT-based APIs
+
+// Input validation — always validate
+@PostMapping("/orders")
+public ResponseEntity&lt;?&gt; create(@RequestBody @Valid CreateOrderRequest req) { }
+
+// @Valid triggers Bean Validation
+public record CreateOrderRequest(
+    @NotBlank String userId,
+    @Positive @DecimalMax("10000.00") BigDecimal amount,
+    @NotEmpty @Size(max = 50) List&lt;@NotBlank String&gt; itemIds
+) { }</pre>
+</div></li>
+</ul>
+</div></div>
+
+<!-- ════════════════════════════════════════════════ SYSTEM DESIGN ════ -->
+<div id="systemdesign" class="section"><div class="container">
+<div class="sec-title">📐 System Design</div>
+<p class="sec-sub">Framework · Core concepts · 3 full designs · Key patterns — expect 30–45 min discussion</p>
+<div class="info warn"><strong>Interview tip:</strong> Think out loud. Start broad (boxes and arrows), then go deep where interviewer shows interest. Always discuss trade-offs. "We could use X but that means Y trade-off — I chose Z because..."</div>
+
+<div class="sec-lbl">🎥 YouTube Resources for System Design</div>
+<div class="res-grid">
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>Gaurav Sen</h4><p>Best channel for system design fundamentals. Covers consistent hashing, CAP, DB sharding, Zookeeper, Netflix architecture. Very clear diagrams.</p><a href="https://www.youtube.com/@gkcs" target="_blank" class="res-link">@gkcs →</a></div>
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>System Design Interview (Alex Xu)</h4><p>Based on the book. Covers URL shortener, Twitter, Netflix, WhatsApp designs step by step. Must watch before interview.</p><a href="https://www.youtube.com/@SystemDesignInterview" target="_blank" class="res-link">@SystemDesignInterview →</a></div>
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>ByteByteGo (Alex Xu)</h4><p>Short 5-10 min animated explainers on every system design concept. API gateway, CDN, caching, load balancing, message queues.</p><a href="https://www.youtube.com/@ByteByteGo" target="_blank" class="res-link">@ByteByteGo →</a></div>
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>Arpit Bhayani</h4><p>Deep dives: database internals, consistent hashing, distributed systems. Very technical, great for Java engineers who want depth.</p><a href="https://www.youtube.com/@AsliEngineering" target="_blank" class="res-link">@AsliEngineering →</a></div>
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>Concept &amp;&amp; Coding (Shrayansh)</h4><p>Indian creator covering LLD + HLD with Java code. Spring Boot microservices designs, very relevant to this exact role.</p><a href="https://www.youtube.com/@ConceptandCoding" target="_blank" class="res-link">@ConceptandCoding →</a></div>
+<div class="res-card"><span class="rt rt-doc">Resource</span><h4>System Design Primer (GitHub)</h4><p>Most comprehensive free text resource. Covers every concept with examples. Read the "How to approach" section first.</p><a href="https://github.com/donnemartin/system-design-primer" target="_blank" class="res-link">github.com/donnemartin →</a></div>
+</div>
+
+<div class="sd-card" style="margin-top:1.5rem;"><h3>Universal 6-Step Framework</h3>
+<ol class="steps">
+<li><strong>Clarify requirements</strong> — Functional: what it does. Non-functional: scale, latency SLA, availability (99.9% = 8.7 hrs/year downtime). Ask: read-heavy or write-heavy?</li>
+<li><strong>Estimate scale</strong> — DAU × actions/day = QPS. 1M DAU × 10 actions = 10M req/day ÷ 86400 = ~116 QPS. Peak = 3-5× average. Storage: # records × avg size × retention period.</li>
+<li><strong>High-level design</strong> — Client → CDN → Load Balancer → API Gateway → Services → Databases. Draw boxes and arrows, name each component.</li>
+<li><strong>Deep dive</strong> — Go deep on the most interesting/complex part. Database schema, API design, caching strategy, consistency guarantees.</li>
+<li><strong>Identify bottlenecks</strong> — Single points of failure, hotspots, scaling limits. Propose: replication, sharding, caching, async processing.</li>
+<li><strong>Discuss trade-offs</strong> — SQL vs NoSQL, consistency vs availability (CAP), sync vs async, cost vs performance.</li>
+</ol></div>
+
+<div class="sd-card"><h3>Design 1: URL Shortener (e.g. bit.ly)</h3>
+<ul class="plain">
+<li><strong>Requirements:</strong> Shorten URL (write ~100/sec), redirect (read ~10K/sec), expiration, analytics</li>
+<li><strong>Key decision:</strong> Base62 encode a unique ID (6 chars = 62^6 = 56B URLs). Use distributed ID gen (Snowflake) not random (collision risk)</li>
+<li><strong>DB:</strong> MySQL/PostgreSQL for URL mapping (simple K-V, needs ACID for creation). Redis for hot URL cache (read-heavy, sub-ms latency)</li>
+<li><strong>Redirect flow:</strong> Browser → DNS → LB → App → Redis cache → (miss) → DB → 301/302 redirect</li>
+<li><strong>301 vs 302:</strong> 301 (permanent, client caches) = fewer server hits. 302 (temporary) = every click hits server = better analytics accuracy</li>
+<li><strong>Analytics:</strong> Async via Kafka → Analytics service → writes to Cassandra (time-series, high write throughput)</li>
+<li><strong>Scale to 10K RPS reads:</strong> Read replicas + Redis cluster + CDN for extremely hot URLs</li>
+</ul></div>
+
+<div class="sd-card"><h3>Design 2: E-Commerce Backend (Java + Spring Boot)</h3>
+<ul class="plain">
+<li><strong>Services:</strong> User Service, Product Service, Order Service, Inventory Service, Payment Service, Notification Service, Search Service</li>
+<li><strong>DB choices:</strong> Orders/Users → PostgreSQL (ACID, relational). Products → MongoDB (flexible schema, categories). Search → Elasticsearch. Sessions → Redis</li>
+<li><strong>Order creation flow:</strong> POST /orders → API Gateway (auth, rate limit) → Order Service → check inventory (sync Feign) → reserve stock → call Payment Service (sync) → on success: emit OrderCreated event (Kafka) → Notification + Analytics consume async</li>
+<li><strong>Inventory:</strong> Optimistic locking to prevent overselling. Check-and-set pattern: UPDATE inventory SET stock=stock-1 WHERE product_id=? AND stock>0</li>
+<li><strong>Failure handling:</strong> Saga pattern for distributed TX. Payment fails → compensate by releasing reserved inventory</li>
+<li><strong>Caching:</strong> Product catalog → Redis (TTL 1hr, evict on update). User session → Redis. Cart → Redis (ephemeral)</li>
+<li><strong>Search:</strong> Elasticsearch for product search. Sync via CDC (Debezium) from product DB → Kafka → ES consumer</li>
+</ul></div>
+
+<div class="sd-card"><h3>Design 3: Real-Time Notification Service</h3>
+<ul class="plain">
+<li><strong>Requirements:</strong> Send email/SMS/push, 10M notifications/day, &lt;5 sec delivery, at-least-once delivery, user preference management</li>
+<li><strong>Architecture:</strong> Event sources (Order, Payment, Promo) → Kafka → Notification Orchestrator → route by user preference (MongoDB) → channel-specific senders (Email via SES, SMS via Twilio, Push via FCM)</li>
+<li><strong>Deduplication:</strong> Redis SETNX with 24h TTL on notification ID — prevents duplicates on retry</li>
+<li><strong>Rate limiting:</strong> Max N notifications/user/day. Redis counter with daily expiry</li>
+<li><strong>Retry:</strong> Exponential backoff: 1s → 2s → 4s → 8s → DLQ after 5 attempts</li>
+<li><strong>Tracking:</strong> Delivery status (sent/delivered/failed/bounced) persisted to MongoDB + webhook from providers</li>
+<li><strong>Scale:</strong> Kafka partitioning by userId ensures ordered delivery per user. Horizontal scaling of senders</li>
+</ul></div>
+
+<div class="sd-card"><h3>Core Concepts — Drop These in Any Design Discussion</h3>
+<div class="g2">
+<ul class="plain">
+<li><strong>CAP Theorem:</strong> Can't have Consistency + Availability + Partition Tolerance simultaneously. MongoDB = CP, Cassandra = AP, RDBMS = CA (no partition tolerance)</li>
+<li><strong>Consistent Hashing:</strong> Distributes data across nodes. Adding/removing node only remaps ~K/n keys. Used in Redis Cluster, Cassandra, load balancers</li>
+<li><strong>CQRS:</strong> Separate read model from write model. Write to normalized DB, project to denormalized read DB. Good for high read:write ratio</li>
+<li><strong>Event Sourcing:</strong> Store events not state. Rebuild state by replaying events. Audit trail for free. Kafka + MongoDB as event store</li>
+</ul>
+<ul class="plain">
+<li><strong>Caching strategies:</strong> Cache-aside (lazy, most common), Write-through (sync write to cache+DB), Write-behind (async), Read-through (cache proxies DB)</li>
+<li><strong>DB Sharding:</strong> Horizontal partition by shard key. Range-based (easy range queries, hot spots), Hash-based (even distribution, no range queries), Directory-based (flexible, lookup overhead)</li>
+<li><strong>Two-phase commit:</strong> Coordinator asks all nodes to prepare → if all OK → commit. Blocks on coordinator failure. Avoid — use Saga instead</li>
+<li><strong>Bloom Filter:</strong> Space-efficient probabilistic structure. "Definitely not in set" or "probably in set". Use for cache negative lookups (check Bloom before DB hit)</li>
+</ul>
+</div></div>
+</div></div>
+
+<!-- ════════════════════════════════════════════════ DSA ════ -->
+<div id="dsa" class="section"><div class="container">
+<div class="sec-title">🧩 DSA — Java Coding</div>
+<p class="sec-sub">Patterns over problems · Java-specific tips · Templates · Top 15 problems for backend devs</p>
+
+<div class="sec-lbl">🎥 YouTube Resources for DSA</div>
+<div class="res-grid">
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>NeetCode</h4><p>Best DSA channel — clean explanations + Java-friendly code. "NeetCode 150" roadmap is gold. Essential for interview prep.</p><a href="https://www.youtube.com/@NeetCode" target="_blank" class="res-link">@NeetCode →</a></div>
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>Striver (TakeUtoForward)</h4><p>Best for Indian SDE interviews. Structured DSA playlist (A-Z), detailed patterns, Java code. "SDE Sheet" widely followed.</p><a href="https://www.youtube.com/@takeUforward" target="_blank" class="res-link">@takeUforward →</a></div>
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>Abdul Bari</h4><p>Deep algorithm explanations — graphs, DP, backtracking. Best for understanding WHY an algorithm works, not just how.</p><a href="https://www.youtube.com/@abdul_bari" target="_blank" class="res-link">@abdul_bari →</a></div>
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>Kunal Kushwaha</h4><p>Java-focused DSA bootcamp. Arrays → Trees → Graphs with Java implementations. Very beginner-friendly but thorough.</p><a href="https://www.youtube.com/@KunalKushwaha" target="_blank" class="res-link">@KunalKushwaha →</a></div>
+<div class="res-card"><span class="rt rt-prac">Practice</span><h4>LeetCode — Backend Focus List</h4><p>Filter by: HashMap, Tree, Graph, Stack. Target 15 mediums in Java. Use "Discuss" tab to find Java solutions and patterns.</p><a href="https://leetcode.com/problemset/?difficulty=MEDIUM&topicSlugs=hash-table" target="_blank" class="res-link">leetcode.com →</a></div>
+<div class="res-card"><span class="rt rt-prac">Practice</span><h4>Striver's SDE Sheet</h4><p>Curated 191 problems specifically for SDE interviews. Each topic has 8-10 essential problems. Java solutions available.</p><a href="https://takeuforward.org/interviews/strivers-sde-sheet-top-coding-interview-problems/" target="_blank" class="res-link">takeuforward.org →</a></div>
+</div>
+
+<div class="info warn" style="margin-top:1.25rem;"><strong>Backend Developer DSA Focus:</strong> You won't get DP or advanced graph problems. Focus on: HashMap patterns (50%), Trees/BFS/DFS (25%), Sliding Window (15%), Binary Search (10%). Aim for clean, readable Java — not the cleverest solution.</div>
+
+<div class="card"><h3>Must-Know Java DSA Patterns with Templates</h3></div>
+
+<ul class="qa-list">
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">HashMap pattern — Two Sum, Group Anagrams, Frequency counting</span><div class="qa-badges"><span class="d-e">Easy</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>// Two Sum — O(n) time, O(n) space
+public int[] twoSum(int[] nums, int target) {
+    Map&lt;Integer, Integer&gt; seen = new HashMap&lt;&gt;();
+    for (int i = 0; i &lt; nums.length; i++) {
+        int complement = target - nums[i];
+        if (seen.containsKey(complement)) 
+            return new int[]{seen.get(complement), i};
+        seen.put(nums[i], i);
+    }
+    return new int[]{};
+}
+
+// Group Anagrams — LC 49
+public List&lt;List&lt;String&gt;&gt; groupAnagrams(String[] strs) {
+    Map&lt;String, List&lt;String&gt;&gt; map = new HashMap&lt;&gt;();
+    for (String s : strs) {
+        char[] chars = s.toCharArray();
+        Arrays.sort(chars);
+        String key = new String(chars); // sorted = canonical form
+        map.computeIfAbsent(key, k -> new ArrayList&lt;&gt;()).add(s);
+    }
+    return new ArrayList&lt;&gt;(map.values());
+}
+
+// Frequency + Top K — LC 347
+public int[] topKFrequent(int[] nums, int k) {
+    Map&lt;Integer, Integer&gt; freq = new HashMap&lt;&gt;();
+    for (int n : nums) freq.merge(n, 1, Integer::sum);
+    
+    // Min-heap of size k — O(n log k)
+    PriorityQueue&lt;int[]&gt; pq = new PriorityQueue&lt;&gt;((a,b) -> a[1]-b[1]);
+    for (var e : freq.entrySet()) {
+        pq.offer(new int[]{e.getKey(), e.getValue()});
+        if (pq.size() > k) pq.poll();
+    }
+    return pq.stream().mapToInt(a -> a[0]).toArray();
+}</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Sliding Window — longest substring, minimum window, subarray sum</span><div class="qa-badges"><span class="d-m">Medium</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>// Longest substring without repeating chars — LC 3 — O(n)
+public int lengthOfLongestSubstring(String s) {
+    Map&lt;Character, Integer&gt; lastSeen = new HashMap&lt;&gt;();
+    int maxLen = 0, left = 0;
+    for (int right = 0; right &lt; s.length(); right++) {
+        char c = s.charAt(right);
+        if (lastSeen.containsKey(c)) {
+            left = Math.max(left, lastSeen.get(c) + 1); // shrink window
+        }
+        lastSeen.put(c, right);
+        maxLen = Math.max(maxLen, right - left + 1);
+    }
+    return maxLen;
+}
+
+// Subarray sum equals K — LC 560 — O(n)
+// Use prefix sum + HashMap (not sliding window — negatives possible)
+public int subarraySum(int[] nums, int k) {
+    Map&lt;Integer, Integer&gt; prefixCount = new HashMap&lt;&gt;();
+    prefixCount.put(0, 1); // empty prefix
+    int count = 0, prefixSum = 0;
+    for (int n : nums) {
+        prefixSum += n;
+        count += prefixCount.getOrDefault(prefixSum - k, 0);
+        prefixCount.merge(prefixSum, 1, Integer::sum);
+    }
+    return count;
+}
+
+// Fixed window max — max sum of k-size subarray
+public int maxSumSubarray(int[] nums, int k) {
+    int windowSum = 0;
+    for (int i = 0; i &lt; k; i++) windowSum += nums[i];
+    int maxSum = windowSum;
+    for (int i = k; i &lt; nums.length; i++) {
+        windowSum += nums[i] - nums[i-k]; // slide: add new, remove old
+        maxSum = Math.max(maxSum, windowSum);
+    }
+    return maxSum;
+}</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">BFS / DFS — trees, graphs, islands problem</span><div class="qa-badges"><span class="d-m">Medium</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>// BFS — Level-order traversal + shortest path template
+public List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) {
+    List&lt;List&lt;Integer&gt;&gt; result = new ArrayList&lt;&gt;();
+    if (root == null) return result;
+    Queue&lt;TreeNode&gt; q = new ArrayDeque&lt;&gt;();
+    q.offer(root);
+    while (!q.isEmpty()) {
+        int size = q.size(); // freeze level size
+        List&lt;Integer&gt; level = new ArrayList&lt;&gt;();
+        for (int i = 0; i &lt; size; i++) {
+            TreeNode node = q.poll();
+            level.add(node.val);
+            if (node.left != null) q.offer(node.left);
+            if (node.right != null) q.offer(node.right);
+        }
+        result.add(level);
+    }
+    return result;
+}
+
+// Number of Islands — LC 200 — BFS approach
+public int numIslands(char[][] grid) {
+    int islands = 0;
+    int rows = grid.length, cols = grid[0].length;
+    for (int r = 0; r &lt; rows; r++) {
+        for (int c = 0; c &lt; cols; c++) {
+            if (grid[r][c] == '1') {
+                islands++;
+                bfsSink(grid, r, c, rows, cols); // sink the island
+            }
+        }
+    }
+    return islands;
+}
+private void bfsSink(char[][] grid, int r, int c, int rows, int cols) {
+    Queue&lt;int[]&gt; q = new ArrayDeque&lt;&gt;();
+    q.offer(new int[]{r, c});
+    grid[r][c] = '0';
+    int[][] dirs = {{0,1},{0,-1},{1,0},{-1,0}};
+    while (!q.isEmpty()) {
+        int[] cur = q.poll();
+        for (int[] d : dirs) {
+            int nr = cur[0]+d[0], nc = cur[1]+d[1];
+            if (nr&gt;=0 && nr&lt;rows && nc&gt;=0 && nc&lt;cols && grid[nr][nc]=='1') {
+                grid[nr][nc] = '0';
+                q.offer(new int[]{nr, nc});
+            }
+        }
+    }
+}</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Binary Search — template and variations</span><div class="qa-badges"><span class="d-e">Easy</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>// Standard binary search — O(log n)
+public int binarySearch(int[] nums, int target) {
+    int left = 0, right = nums.length - 1;
+    while (left &lt;= right) {
+        int mid = left + (right - left) / 2; // avoids overflow
+        if (nums[mid] == target) return mid;
+        else if (nums[mid] &lt; target) left = mid + 1;
+        else right = mid - 1;
+    }
+    return -1;
+}
+
+// First/Last position — find leftmost occurrence
+public int firstPosition(int[] nums, int target) {
+    int left = 0, right = nums.length - 1, result = -1;
+    while (left &lt;= right) {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] == target) { result = mid; right = mid - 1; } // go left
+        else if (nums[mid] &lt; target) left = mid + 1;
+        else right = mid - 1;
+    }
+    return result;
+}
+
+// Search in rotated sorted array — LC 33
+public int searchRotated(int[] nums, int target) {
+    int l = 0, r = nums.length - 1;
+    while (l &lt;= r) {
+        int m = l + (r - l) / 2;
+        if (nums[m] == target) return m;
+        if (nums[l] &lt;= nums[m]) { // left half sorted
+            if (nums[l] &lt;= target && target &lt; nums[m]) r = m - 1;
+            else l = m + 1;
+        } else { // right half sorted
+            if (nums[m] &lt; target && target &lt;= nums[r]) l = m + 1;
+            else r = m - 1;
+        }
+    }
+    return -1;
+}</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">LRU Cache + LFU Cache — Java implementations</span><div class="qa-badges"><span class="d-h">Hard</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>// LRU Cache — LinkedHashMap approach O(1)
+class LRUCache {
+    private final LinkedHashMap&lt;Integer, Integer&gt; cache;
+    
+    public LRUCache(int capacity) {
+        // accessOrder=true: get() moves entry to end (most recent)
+        cache = new LinkedHashMap&lt;&gt;(capacity, 0.75f, true) {
+            @Override
+            protected boolean removeEldestEntry(Map.Entry&lt;Integer, Integer&gt; eldest) {
+                return size() > capacity;
+            }
+        };
+    }
+    public int get(int key) { return cache.getOrDefault(key, -1); }
+    public void put(int key, int value) { cache.put(key, value); }
+}
+
+// LRU Cache — HashMap + Doubly Linked List (interview-preferred approach)
+class LRUCacheManual {
+    private final int cap;
+    private final Map&lt;Integer, Node&gt; map = new HashMap&lt;&gt;();
+    private final Node head = new Node(0,0), tail = new Node(0,0);
+    
+    public LRUCacheManual(int cap) {
+        this.cap = cap;
+        head.next = tail; tail.prev = head;
+    }
+    
+    public int get(int key) {
+        Node n = map.get(key);
+        if (n == null) return -1;
+        remove(n); addToFront(n); return n.val;
+    }
+    
+    public void put(int key, int val) {
+        if (map.containsKey(key)) remove(map.get(key));
+        Node n = new Node(key, val);
+        addToFront(n); map.put(key, n);
+        if (map.size() > cap) {
+            Node lru = tail.prev;
+            remove(lru); map.remove(lru.key);
+        }
+    }
+    
+    private void remove(Node n) { n.prev.next=n.next; n.next.prev=n.prev; }
+    private void addToFront(Node n) { n.next=head.next; n.prev=head; head.next.prev=n; head.next=n; }
+    
+    static class Node { int key, val; Node prev, next;
+        Node(int k,int v){key=k;val=v;} }
+}</pre>
+</div></li>
+<li class="qa-item"><div class="qa-q" onclick="tq(this)"><span class="qa-label">Stack patterns — valid parentheses, daily temperatures, next greater element</span><div class="qa-badges"><span class="d-m">Medium</span></div><span class="qa-arrow">▼</span></div><div class="qa-a">
+<pre>// Valid Parentheses — LC 20
+public boolean isValid(String s) {
+    Deque&lt;Character&gt; stack = new ArrayDeque&lt;&gt;(); // use Deque not Stack
+    Map&lt;Character, Character&gt; pairs = Map.of(')', '(', ']', '[', '}', '{');
+    for (char c : s.toCharArray()) {
+        if (!pairs.containsKey(c)) stack.push(c);
+        else if (stack.isEmpty() || stack.pop() != pairs.get(c)) return false;
+    }
+    return stack.isEmpty();
+}
+
+// Monotonic Stack — Next Greater Element
+public int[] nextGreaterElement(int[] nums) {
+    int n = nums.length;
+    int[] result = new int[n];
+    Arrays.fill(result, -1);
+    Deque&lt;Integer&gt; stack = new ArrayDeque&lt;&gt;(); // stores indices
+    for (int i = 0; i &lt; n; i++) {
+        while (!stack.isEmpty() && nums[stack.peek()] &lt; nums[i]) {
+            result[stack.pop()] = nums[i]; // found next greater
+        }
+        stack.push(i);
+    }
+    return result;
+}
+
+// Daily Temperatures — LC 739
+public int[] dailyTemperatures(int[] temps) {
+    int[] result = new int[temps.length];
+    Deque&lt;Integer&gt; stack = new ArrayDeque&lt;&gt;(); // monotonic decreasing
+    for (int i = 0; i &lt; temps.length; i++) {
+        while (!stack.isEmpty() && temps[i] > temps[stack.peek()]) {
+            int prevIdx = stack.pop();
+            result[prevIdx] = i - prevIdx;
+        }
+        stack.push(i);
+    }
+    return result;
+}</pre>
+</div></li>
+</ul>
+
+<div class="dsa-grid" style="margin-top:1.25rem;">
+<div class="dsa-card"><h4 style="color:var(--accent)">Top 15 Problems to Solve</h4><ul><li>LC 1: Two Sum</li><li>LC 3: Longest Substring</li><li>LC 15: 3Sum</li><li>LC 20: Valid Parentheses</li><li>LC 102: Level Order BFS</li><li>LC 146: LRU Cache</li><li>LC 200: Number of Islands</li><li>LC 238: Product of Array</li><li>LC 347: Top K Frequent</li><li>LC 560: Subarray Sum = K</li><li>LC 739: Daily Temperatures</li><li>LC 33: Search Rotated Array</li><li>LC 49: Group Anagrams</li><li>LC 572: Subtree of Another Tree</li><li>LC 226: Invert Binary Tree</li></ul></div>
+<div class="dsa-card"><h4 style="color:var(--blue)">Complexity Cheat Sheet</h4><ul><li>Array access: O(1)</li><li>Array search: O(n)</li><li>HashMap get/put: O(1) avg</li><li>HashSet add/contains: O(1) avg</li><li>ArrayList add end: O(1) amortized</li><li>LinkedList add head: O(1)</li><li>Binary search: O(log n)</li><li>Merge/Quick sort: O(n log n)</li><li>BFS/DFS: O(V+E)</li><li>PriorityQueue push: O(log n)</li><li>TreeMap get/put: O(log n)</li><li>Bubble/Insert sort: O(n²)</li></ul></div>
+<div class="dsa-card"><h4 style="color:var(--green)">Java DSA Tips</h4><ul><li>Use ArrayDeque not Stack class</li><li>Collections.sort = TimSort O(n log n)</li><li>Arrays.sort(int[]) = dual-pivot quicksort</li><li>int overflow: use long or Math.addExact</li><li>mid = l + (r-l)/2 not (l+r)/2</li><li>String concat in loop → use StringBuilder</li><li>char arithmetic: 'a'-'a'=0, 'z'-'a'=25</li><li>2D array: int[][] grid = new int[m][n]</li><li>Integer.MAX_VALUE = 2^31-1 = ~2.1B</li><li>Comparator.reversed() for desc sort</li></ul></div>
+</div>
+</div></div>
+
+<!-- ════════════════════════════════════════════════ RESOURCES ════ -->
+<div id="resources" class="section"><div class="container">
+<div class="sec-title">📚 All Resources in One Place</div>
+<p class="sec-sub">Curated YouTube channels, docs, platforms — prioritized for your 72-hour sprint</p>
+
+<div class="sec-lbl">🎥 YouTube — Java &amp; Spring Boot</div>
+<div class="res-grid">
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>Java Guides (Ramesh Fadatare)</h4><p>Spring Boot, Microservices, JUnit+Mockito, Spring Security — project-based, interview-focused. Best for Spring revision.</p><a href="https://www.youtube.com/@JavaGuides" target="_blank" class="res-link">@JavaGuides →</a></div>
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>Daily Code Buffer (Shabbir)</h4><p>Microservices series: Eureka, Gateway, Feign, Resilience4j, Zipkin — end-to-end in Spring Boot. Must watch.</p><a href="https://www.youtube.com/@DailyCodeBuffer" target="_blank" class="res-link">@DailyCodeBuffer →</a></div>
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>Amigoscode</h4><p>Spring Boot REST APIs, Microservices with Docker, Testing with JUnit — high production quality tutorials.</p><a href="https://www.youtube.com/@amigoscode" target="_blank" class="res-link">@amigoscode →</a></div>
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>Telusko (Navin Reddy)</h4><p>Core Java, Java 8, Spring Boot crash courses. Fast-paced, best for quick revision of fundamentals.</p><a href="https://www.youtube.com/@Telusko" target="_blank" class="res-link">@Telusko →</a></div>
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>Java Brains</h4><p>Deep dives into Spring internals, OAuth2, JWT — one of the clearest explanations of Spring Security available.</p><a href="https://www.youtube.com/@Java.Brains" target="_blank" class="res-link">@Java.Brains →</a></div>
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>MongoDB Official</h4><p>Aggregation pipelines, schema design, indexing — from MongoDB engineers. Short and authoritative.</p><a href="https://www.youtube.com/@MongoDB" target="_blank" class="res-link">@MongoDB →</a></div>
+</div>
+
+<div class="sec-lbl" style="margin-top:1.25rem;">🎥 YouTube — DSA (Java)</div>
+<div class="res-grid">
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>NeetCode</h4><p>Best DSA channel. NeetCode 150 roadmap. Clean Java solutions. Pattern-based explanations — ideal for 72-hour prep.</p><a href="https://www.youtube.com/@NeetCode" target="_blank" class="res-link">@NeetCode →</a></div>
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>Striver / TakeUForward</h4><p>India's best SDE DSA channel. Structured A-Z playlist. "SDE Sheet" problems with detailed Java explanations.</p><a href="https://www.youtube.com/@takeUforward" target="_blank" class="res-link">@takeUforward →</a></div>
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>Kunal Kushwaha</h4><p>Java-first DSA bootcamp. Great for data structures from scratch — arrays, trees, graphs with Java code.</p><a href="https://www.youtube.com/@KunalKushwaha" target="_blank" class="res-link">@KunalKushwaha →</a></div>
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>Abdul Bari</h4><p>Best for understanding algorithm theory — time complexity proofs, graph algorithms, DP. Foundation builder.</p><a href="https://www.youtube.com/@abdul_bari" target="_blank" class="res-link">@abdul_bari →</a></div>
+</div>
+
+<div class="sec-lbl" style="margin-top:1.25rem;">🎥 YouTube — System Design</div>
+<div class="res-grid">
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>ByteByteGo</h4><p>5-10 min animated explainers on every system design component. Best channel for quick concept revision.</p><a href="https://www.youtube.com/@ByteByteGo" target="_blank" class="res-link">@ByteByteGo →</a></div>
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>Gaurav Sen</h4><p>System design fundamentals: consistent hashing, rate limiting, Zookeeper, sharding. Whiteboard-style clarity.</p><a href="https://www.youtube.com/@gkcs" target="_blank" class="res-link">@gkcs →</a></div>
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>Concept &amp;&amp; Coding (Shrayansh)</h4><p>LLD + HLD with Java code. Microservices designs, design patterns — very relevant to Java backend roles.</p><a href="https://www.youtube.com/@ConceptandCoding" target="_blank" class="res-link">@ConceptandCoding →</a></div>
+<div class="res-card"><span class="rt rt-yt">YouTube</span><h4>Arpit Bhayani</h4><p>Deep technical dives: DB internals, distributed systems, real architectures. Great for senior-level depth.</p><a href="https://www.youtube.com/@AsliEngineering" target="_blank" class="res-link">@AsliEngineering →</a></div>
+</div>
+
+<div class="sec-lbl" style="margin-top:1.25rem;">📖 Docs &amp; Practice Platforms</div>
+<div class="res-grid">
+<div class="res-card"><span class="rt rt-doc">Docs</span><h4>Baeldung</h4><p>The #1 Spring/Java tutorial site. Every topic covered with tested code examples. Bookmark this.</p><a href="https://www.baeldung.com" target="_blank" class="res-link">baeldung.com →</a></div>
+<div class="res-card"><span class="rt rt-doc">Docs</span><h4>Spring Boot Reference</h4><p>Official docs — use Ctrl+F to find specific sections. Most authoritative source for Spring behavior.</p><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/" target="_blank" class="res-link">spring.io →</a></div>
+<div class="res-card"><span class="rt rt-doc">Docs</span><h4>MongoDB Manual</h4><p>Aggregation pipeline reference, indexing strategies, data modeling. Use the Atlas free tier for practice.</p><a href="https://www.mongodb.com/docs/manual/" target="_blank" class="res-link">mongodb.com/docs →</a></div>
+<div class="res-card"><span class="rt rt-prac">Practice</span><h4>LeetCode</h4><p>Solve 15 mediums in Java. Use tags: HashMap, Tree, Graph, Sliding Window. Read top-voted Java solutions.</p><a href="https://leetcode.com" target="_blank" class="res-link">leetcode.com →</a></div>
+<div class="res-card"><span class="rt rt-prac">Practice</span><h4>HackerRank SQL</h4><p>Oracle SQL practice. Start Easy, move to Medium. Window functions section is excellent prep.</p><a href="https://www.hackerrank.com/domains/sql" target="_blank" class="res-link">hackerrank.com →</a></div>
+<div class="res-card"><span class="rt rt-prac">Practice</span><h4>MongoDB University (Free)</h4><p>M001 (basics), M121 (aggregation) — free courses with hands-on practice in Atlas. 4-6 hrs each.</p><a href="https://learn.mongodb.com" target="_blank" class="res-link">learn.mongodb.com →</a></div>
+</div>
+</div></div>
+
+<!-- ════════════════════════════════════════════════ TRACKER ════ -->
+<div id="tracker" class="section"><div class="container">
+<div class="sec-title">✅ 72-Hour Progress Tracker</div>
+<p class="sec-sub">Check each item as you complete it. Aim for 100% before your interview.</p>
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem;">
+    <strong>Overall Progress</strong>
+    <span id="prog-txt" style="font-size:.88rem;color:var(--muted)">0 / 48 completed</span>
+  </div>
+  <div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+</div>
+<div class="g2">
+<div class="card"><h3>☕ Java Core</h3><ul class="checklist">
+  <li><input type="checkbox" onchange="prog()"> OOP: 4 pillars with real project examples</li>
+  <li><input type="checkbox" onchange="prog()"> Abstract class vs Interface — can explain when clearly</li>
+  <li><input type="checkbox" onchange="prog()"> HashMap internals: hashing, collision, treeification</li>
+  <li><input type="checkbox" onchange="prog()"> Java 8 Streams: lazy eval, short-circuit, parallel</li>
+  <li><input type="checkbox" onchange="prog()"> Optional: correct patterns and anti-patterns</li>
+  <li><input type="checkbox" onchange="prog()"> Concurrency: volatile, synchronized, ReentrantLock, deadlock</li>
+  <li><input type="checkbox" onchange="prog()"> CompletableFuture: chain, combine, exception handling</li>
+  <li><input type="checkbox" onchange="prog()"> JVM: heap/stack/metaspace, GC types</li>
+</ul></div>
+<div class="card"><h3>🌱 Spring Boot</h3><ul class="checklist">
+  <li><input type="checkbox" onchange="prog()"> All key annotations memorized (at least 12)</li>
+  <li><input type="checkbox" onchange="prog()"> Auto-configuration: how it works, conditional annotations</li>
+  <li><input type="checkbox" onchange="prog()"> @Transactional: proxy, propagation types, gotchas</li>
+  <li><input type="checkbox" onchange="prog()"> AOP: aspect, advice, pointcut — with example</li>
+  <li><input type="checkbox" onchange="prog()"> Caching: @Cacheable, @CacheEvict, Redis setup</li>
+  <li><input type="checkbox" onchange="prog()"> JWT Security: full filter chain coded</li>
+  <li><input type="checkbox" onchange="prog()"> Global exception handler with @RestControllerAdvice</li>
+  <li><input type="checkbox" onchange="prog()"> Spring Data JPA: repository hierarchy, custom queries</li>
+</ul></div>
+<div class="card"><h3>🏗️ Microservices</h3><ul class="checklist">
+  <li><input type="checkbox" onchange="prog()"> Decomposition: by capability vs subdomain (DDD)</li>
+  <li><input type="checkbox" onchange="prog()"> API Gateway: responsibilities + Spring Cloud Gateway config</li>
+  <li><input type="checkbox" onchange="prog()"> Circuit Breaker: Resilience4j with fallback coded</li>
+  <li><input type="checkbox" onchange="prog()"> Saga pattern: choreography vs orchestration explained</li>
+  <li><input type="checkbox" onchange="prog()"> Kafka: producer + consumer with group, partition, offset</li>
+  <li><input type="checkbox" onchange="prog()"> Outbox pattern: dual write problem solved</li>
+  <li><input type="checkbox" onchange="prog()"> Distributed tracing: Sleuth + Zipkin configured</li>
+</ul></div>
+<div class="card"><h3>🍃 MongoDB</h3><ul class="checklist">
+  <li><input type="checkbox" onchange="prog()"> Embedding vs referencing — know when to use each</li>
+  <li><input type="checkbox" onchange="prog()"> 5-stage aggregation pipeline written out</li>
+  <li><input type="checkbox" onchange="prog()"> Index types: ESR rule, compound, sparse, TTL, partial</li>
+  <li><input type="checkbox" onchange="prog()"> Transactions: @Transactional with MongoTransactionManager</li>
+  <li><input type="checkbox" onchange="prog()"> Sharding vs Replication: clear explanation + shard key criteria</li>
+  <li><input type="checkbox" onchange="prog()"> Spring Data MongoDB: @Document, Repository, MongoTemplate</li>
+</ul></div>
+<div class="card"><h3>🗄️ Oracle / SQL</h3><ul class="checklist">
+  <li><input type="checkbox" onchange="prog()"> All JOIN types: inner, left, full, self, cross</li>
+  <li><input type="checkbox" onchange="prog()"> Window functions: RANK, DENSE_RANK, ROW_NUMBER, LAG, LEAD, NTILE</li>
+  <li><input type="checkbox" onchange="prog()"> Query optimization: EXPLAIN PLAN + 6 techniques</li>
+  <li><input type="checkbox" onchange="prog()"> PL/SQL: procedure with cursor + exception handling</li>
+  <li><input type="checkbox" onchange="prog()"> CTE vs subquery vs JOIN — tradeoffs explained</li>
+  <li><input type="checkbox" onchange="prog()"> ACID + isolation levels + deadlock prevention</li>
+</ul></div>
+<div class="card"><h3>🧪 JUnit + Testing</h3><ul class="checklist">
+  <li><input type="checkbox" onchange="prog()"> JUnit 5 vs 4 differences — all annotation changes</li>
+  <li><input type="checkbox" onchange="prog()"> Mockito: @Mock, @Spy, @Captor, @InjectMocks — full test written</li>
+  <li><input type="checkbox" onchange="prog()"> @WebMvcTest: MockMvc test with status + JSON assertions</li>
+  <li><input type="checkbox" onchange="prog()"> Testcontainers: MongoDB + Kafka integration test</li>
+  <li><input type="checkbox" onchange="prog()"> TDD: Red-Green-Refactor cycle explained</li>
+</ul></div>
+<div class="card"><h3>🌐 REST APIs</h3><ul class="checklist">
+  <li><input type="checkbox" onchange="prog()"> Full Order API designed: resources, methods, status codes</li>
+  <li><input type="checkbox" onchange="prog()"> Rate limiting: token bucket + Spring Cloud Gateway</li>
+  <li><input type="checkbox" onchange="prog()"> OAuth2 flows + CORS + CSRF explained</li>
+  <li><input type="checkbox" onchange="prog()"> HATEOAS links in response body</li>
+</ul></div>
+<div class="card"><h3>📐 System Design + 🧩 DSA</h3><ul class="checklist">
+  <li><input type="checkbox" onchange="prog()"> 6-step SD framework practiced out loud</li>
+  <li><input type="checkbox" onchange="prog()"> URL Shortener designed (all components explained)</li>
+  <li><input type="checkbox" onchange="prog()"> E-Commerce backend designed with tech choices justified</li>
+  <li><input type="checkbox" onchange="prog()"> CAP, consistent hashing, CQRS, Event Sourcing explained</li>
+  <li><input type="checkbox" onchange="prog()"> LRU Cache coded in Java (both approaches)</li>
+  <li><input type="checkbox" onchange="prog()"> BFS/DFS template memorized</li>
+  <li><input type="checkbox" onchange="prog()"> 15 LeetCode problems solved in Java</li>
+  <li><input type="checkbox" onchange="prog()"> Sliding window + monotonic stack patterns coded</li>
+</ul></div>
+</div>
+<div class="info ok" style="margin-top:1rem;"><strong>Day 3 Final Checklist:</strong> Review cheat sheets once → practice 5 random Q&amp;As out loud → prepare 3 questions for interviewer → rest, eat well, 8 hrs sleep. You've done the work. 🚀</div>
+</div></div>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+function tq(el) { el.parentElement.classList.toggle('open'); }
+function prog() {
+  const all = document.querySelectorAll('.checklist input[type=checkbox]');
+  const done = Array.from(all).filter(c => c.checked).length;
+  const total = all.length;
+  document.getElementById('prog-txt').textContent = done + ' / ' + total + ' completed';
+  document.getElementById('prog-fill').style.width = Math.round(done/total*100) + '%';
+}
+</script>
+</body>
+</html>
